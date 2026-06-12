@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrapy-Stealth Documentation</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
+</head>
+<body class="bg-[#0d1117] text-[#c9d1d9] font-sans selection:bg-indigo-500/30 selection:text-indigo-200">
+
+<nav class="sticky top-0 z-50 bg-[#0d1117]/70 backdrop-blur-xl border-b border-gray-800/50 shadow-sm transition-all">
+    <div class="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div class="flex items-center gap-6">
+            <a href="#top" class="flex items-center gap-3 font-bold text-white text-lg tracking-tight group">
+                <img src="./img/small_logo.png" alt="scrapy-stealth logo"
+                     class="h-8 w-8 rounded-lg shadow-md group-hover:scale-105 transition-all duration-300">
+                <span class="bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">scrapy-stealth</span>
+            </a>
+            <div class="hidden md:flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-emerald-400">Operational</span>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <div class="hidden lg:flex items-center gap-2">
+                <a href="https://github.com/fawadss1/scrapy-stealth/stargazers" target="_blank"
+                   class="flex items-center bg-gray-900/60 border border-gray-800 rounded-lg hover:border-indigo-500/30 transition-all group overflow-hidden">
+                    <span class="px-2.5 py-1 text-xs font-medium text-gray-400 group-hover:text-gray-200 flex items-center gap-1.5 border-r border-gray-800"><i
+                            class="fa-regular fa-star text-indigo-400"></i> Stars</span>
+                    <span class="px-2.5 py-1 text-xs font-semibold text-white bg-gray-950"><span class="stars-lbl">...</span></span>
+                </a>
+                <a href="https://github.com/fawadss1/scrapy-stealth/forks" target="_blank"
+                   class="flex items-center bg-gray-900/60 border border-gray-800 rounded-lg hover:border-indigo-500/30 transition-all group overflow-hidden">
+                    <span class="px-2.5 py-1 text-xs font-medium text-gray-400 group-hover:text-gray-200 flex items-center gap-1.5 border-r border-gray-800"><i
+                            class="fa-solid fa-code-fork text-indigo-400"></i> Forks</span>
+                    <span class="px-2.5 py-1 text-xs font-semibold text-white bg-gray-950"><span class="forks-lbl">...</span></span>
+                </a>
+                <a href="https://pepy.tech/project/scrapy-stealth" target="_blank"
+                   class="flex items-center bg-gray-900/60 border border-gray-800 rounded-lg hover:border-emerald-500/30 transition-all group overflow-hidden">
+                    <span class="px-2.5 py-1 text-xs font-medium text-gray-400 group-hover:text-gray-200 flex items-center gap-1.5 border-r border-gray-800"><i
+                            class="fa-solid fa-download text-emerald-400"></i> Downloads</span>
+                    <span class="px-2.5 py-1 text-xs font-semibold text-white bg-gray-950"><span
+                            class="downloads-lbl">...</span></span>
+                </a>
+            </div>
+
+            <div class="flex items-center gap-2.5">
+                <a href="https://github.com/fawadss1/scrapy-stealth" target="_blank"
+                   class="px-3 py-1.5 rounded-lg border border-gray-800 hover:border-gray-600 text-xs md:text-sm font-medium text-gray-200 hover:text-white transition-all bg-gray-900/40 flex items-center gap-1.5 shadow-inner">
+                    <i class="fa-brands fa-github text-base text-gray-400"></i> <span>Repository</span>
+                </a>
+                <a href="https://pypi.org/project/scrapy-stealth/" target="_blank"
+                   class="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-xs md:text-sm font-medium text-white transition-all shadow-lg shadow-indigo-600/20 active:scale-95 flex items-center gap-1">
+                    <span>PyPI Registry</span> <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-70"></i>
+                </a>
+            </div>
+
+            <button onclick="document.getElementById('sidebar-drawer').classList.toggle('-translate-x-full')"
+                    class="lg:hidden p-2 text-gray-400 hover:text-white transition-colors rounded-lg hover:bg-gray-800/40">
+                <i class="fa-solid fa-bars-staggered text-lg"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<div class="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex gap-8">
+
+        <aside id="sidebar-nav" class="hidden lg:block w-64 shrink-0 sticky top-20 h-[calc(100vh-6rem)] overflow-y-auto pr-3 pb-8">
+            <nav class="space-y-1.5">
+                <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
+                   href="#overview">Overview</a>
+                <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
+                   href="#why">Why scrapy-stealth?</a>
+                <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
+                   href="#comparison">Comparison</a>
+                <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
+                   href="#features">Features</a>
+                <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
+                   href="#installation">Installation</a>
+
+                <div class="pt-1 pb-1">
+                    <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
+                       href="#setup">Setup</a>
+                    <div class="mt-1 ml-4 pl-3 border-l-2 border-gray-800/60 space-y-0.5">
+                        <a class="nav-link relative flex items-center px-3 py-1.5 text-xs font-medium rounded-md text-gray-500 hover:text-gray-300 hover:bg-gray-800/30 transition-all [&.active]:text-indigo-400"
+                           href="#setup-global">Global Level</a>
+                        <a class="nav-link relative flex items-center px-3 py-1.5 text-xs font-medium rounded-md text-gray-500 hover:text-gray-300 hover:bg-gray-800/30 transition-all [&.active]:text-indigo-400"
+                           href="#setup-spider">Per-Spider Level</a>
+                    </div>
+                </div>
+
+                <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
+                   href="#quickstart">Quick Start</a>
+                <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
+                   href="#global-config">Global Configuration</a>
+                <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
+                   href="#per-request">Per-Request Config</a>
+                <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
+                   href="#browser-engine">Browser Engine</a>
+                <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
+                   href="#screenshots">Screenshots</a>
+                <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
+                   href="#rotation">Automatic Rotation</a>
+
+                <div class="pt-1 pb-1">
+                    <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
+                       href="#strategies">Strategies</a>
+                    <div class="mt-1 ml-4 pl-3 border-l-2 border-gray-800/60 space-y-0.5">
+                        <a class="nav-link relative flex items-center px-3 py-1.5 text-xs font-medium rounded-md text-gray-500 hover:text-gray-300 hover:bg-gray-800/30 transition-all [&.active]:text-indigo-400"
+                           href="#proxy-rotation">Proxy Rotation</a>
+                        <a class="nav-link relative flex items-center px-3 py-1.5 text-xs font-medium rounded-md text-gray-500 hover:text-gray-300 hover:bg-gray-800/30 transition-all [&.active]:text-indigo-400"
+                           href="#fingerprint-rotation">Fingerprint Engine</a>
+                        <a class="nav-link relative flex items-center px-3 py-1.5 text-xs font-medium rounded-md text-gray-500 hover:text-gray-300 hover:bg-gray-800/30 transition-all [&.active]:text-indigo-400"
+                           href="#intelligent-retry">Intelligent Retry</a>
+                    </div>
+                </div>
+
+                <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
+                   href="#antibot">Anti-Bot Detection</a>
+                <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
+                   href="#example">Full Example</a>
+                <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
+                   href="#performance">Performance Insight</a>
+                <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
+                   href="#distribution">Distribution</a>
+                <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
+                   href="#changelog">Changelog & Contrib</a>
+                <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
+                   href="#license">License</a>
+            </nav>
+        </aside>
+        <main class="flex-1 min-w-0 pt-6 pb-24">
+            <div id="top"></div>
+
+            <div class="relative overflow-hidden rounded-2xl border border-gray-800/80 bg-gradient-to-br from-indigo-950/40 via-[#111622] to-emerald-950/20 px-6 py-12 text-center mb-12 shadow-2xl">
+                <img src="./img/logo.png" alt="scrapy-stealth logo" class="w-100 h-30 mx-auto mb-5 drop-shadow-lg object-contain">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-3">scrapy-stealth</h1>
+                <p class="text-lg md:text-xl text-indigo-200/90 font-medium mb-4">Stealthy Crawling. Maximum Results.</p>
+                <p class="max-w-2xl mx-auto text-sm md:text-base text-gray-400 leading-relaxed mb-6">
+                    A pluggable anti-bot and stealth framework for Scrapy — browser impersonation, proxy rotation, fingerprint cycling,
+                    and intelligent retry strategies for production-grade crawling.
+                </p>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-semibold bg-indigo-500/10 text-indigo-300 border border-indigo-500/20"><i
+                            class="fa-brands fa-python"></i>Python 3.11+</span>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-semibold bg-indigo-500/10 text-indigo-300 border border-indigo-500/20"><i
+                            class="fa-solid fa-spider"></i>Scrapy 2.12–2.x</span>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"><i
+                            class="fa-solid fa-scale-balanced"></i>MIT License</span>
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"><i
+                            class="fa-solid fa-tag"></i><span class="version-lbl">v…</span></span>
+                </div>
+            </div>
+
+            <section id="overview" class="scroll-mt-24 mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">Overview</h2>
+                <p class="text-gray-400 leading-relaxed">
+                    <code class="text-indigo-400 bg-indigo-950/30 px-1.5 py-0.5 rounded text-sm font-mono">scrapy-stealth</code>
+                    extends Scrapy with browser impersonation, proxy rotation, fingerprint cycling, and intelligent retry strategies —
+                    designed for large-scale, production-grade crawling. It plugs in as a downloader middleware and lets you opt
+                    individual requests in or out of "stealth mode" using <code
+                        class="text-indigo-400 bg-indigo-950/30 px-1.5 py-0.5 rounded text-sm font-mono">request.meta</code>.
+                </p>
+            </section>
+
+            <section id="why" class="scroll-mt-24 mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">🧠 Why
+                    scrapy-stealth?</h2>
+                <p class="text-gray-400 mb-6">Scrapy is fast and powerful, but modern websites use advanced anti-bot protections such
+                    as TLS fingerprinting, browser behavior checks, and localized rate limits.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div class="flex items-start gap-4 p-4 rounded-xl border border-gray-800 bg-gray-900/30">
+                        <div class="p-2.5 rounded-lg bg-emerald-500/10 text-emerald-400"><i class="fa-solid fa-dna text-xl"></i></div>
+                        <div>
+                            <h4 class="text-white font-semibold text-sm mb-1">Browser-level impersonation</h4>
+                            <p class="text-xs text-gray-500">Deep emulation of modern TLS structures and HTTP/2 setups.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 rounded-xl border border-gray-800 bg-gray-900/30">
+                        <div class="p-2.5 rounded-lg bg-indigo-500/10 text-indigo-400"><i class="fa-solid fa-rotate text-xl"></i></div>
+                        <div>
+                            <h4 class="text-white font-semibold text-sm mb-1">Smart Retry Strategy</h4>
+                            <p class="text-xs text-gray-500">Heuristics engineered to intercept temporary challenges without loops.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 rounded-xl border border-gray-800 bg-gray-900/30">
+                        <div class="p-2.5 rounded-lg bg-indigo-500/10 text-indigo-400"><i class="fa-solid fa-globe text-xl"></i></div>
+                        <div>
+                            <h4 class="text-white font-semibold text-sm mb-1">Proxy & Profile Rotation</h4>
+                            <p class="text-xs text-gray-500">Dynamically maps clean browser fingerprints matching routing states.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4 p-4 rounded-xl border border-gray-800 bg-gray-900/30">
+                        <div class="p-2.5 rounded-lg bg-emerald-500/10 text-emerald-400"><i
+                                class="fa-solid fa-shield-halved text-xl"></i></div>
+                        <div>
+                            <h4 class="text-white font-semibold text-sm mb-1">Advanced Anti-Bot Evasion</h4>
+                            <p class="text-xs text-gray-500">Defeats Cloudflare, Akamai and common static scripts out of the box.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="comparison" class="scroll-mt-24 mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">📊 Feature Mapping
+                    & Comparison</h2>
+                <div class="overflow-x-auto rounded-xl border border-gray-800 bg-gray-900/20 mb-4">
+                    <table class="w-full text-left border-collapse text-sm whitespace-nowrap">
+                        <thead>
+                        <tr class="bg-gray-900/50 border-b border-gray-800 text-gray-300 font-semibold">
+                            <th class="p-3.5">Feature</th>
+                            <th class="p-3.5 text-center text-indigo-400 bg-indigo-500/5">scrapy-stealth</th>
+                            <th class="p-3.5 text-center">scrapy-impersonate</th>
+                            <th class="p-3.5 text-center">scrapy-playwright</th>
+                            <th class="p-3.5 text-center">scrapy-splash</th>
+                            <th class="p-3.5 text-center">Scrapy (default)</th>
+                        </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-800/60 text-gray-400">
+                        <tr class="hover:bg-gray-800/10 transition-colors">
+                            <td class="p-3 font-medium text-gray-300">TLS fingerprint spoofing</td>
+                            <td class="p-3 text-center text-emerald-400 bg-indigo-500/5">✅</td>
+                            <td class="p-3 text-center text-emerald-400">✅</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/10 transition-colors">
+                            <td class="p-3 font-medium text-gray-300">HTTP/2 support</td>
+                            <td class="p-3 text-center text-emerald-400 bg-indigo-500/5">✅</td>
+                            <td class="p-3 text-center text-emerald-400">✅</td>
+                            <td class="p-3 text-center text-emerald-400">✅</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/10 transition-colors">
+                            <td class="p-3 font-medium text-gray-300">Browser impersonation</td>
+                            <td class="p-3 text-center text-emerald-400 bg-indigo-500/5">✅</td>
+                            <td class="p-3 text-center text-emerald-400">✅</td>
+                            <td class="p-3 text-center text-amber-500 text-xs">⚠️ partial</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/10 transition-colors">
+                            <td class="p-3 font-medium text-gray-300">Proxy rotation (built-in)</td>
+                            <td class="p-3 text-center text-emerald-400 bg-indigo-500/5">✅</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/10 transition-colors">
+                            <td class="p-3 font-medium text-gray-300">Fingerprint rotation</td>
+                            <td class="p-3 text-center text-emerald-400 bg-indigo-500/5">✅</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/10 transition-colors">
+                            <td class="p-3 font-medium text-gray-300">Anti-bot detection</td>
+                            <td class="p-3 text-center text-emerald-400 bg-indigo-500/5">✅</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/10 transition-colors">
+                            <td class="p-3 font-medium text-gray-300">Smart retry logic</td>
+                            <td class="p-3 text-center text-emerald-400 bg-indigo-500/5">✅</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/10 transition-colors">
+                            <td class="p-3 font-medium text-gray-300">Per-request engine switching</td>
+                            <td class="p-3 text-center text-emerald-400 bg-indigo-500/5">✅</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/10 transition-colors">
+                            <td class="p-3 font-medium text-gray-300">Headless browser required</td>
+                            <td class="p-3 text-center text-emerald-400 bg-indigo-500/5">✅</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                            <td class="p-3 text-center text-emerald-400">✅</td>
+                            <td class="p-3 text-center text-emerald-400">✅</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/10 transition-colors">
+                            <td class="p-3 font-medium text-gray-300">JavaScript rendering</td>
+                            <td class="p-3 text-center text-emerald-400 bg-indigo-500/5">✅</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                            <td class="p-3 text-center text-emerald-400">✅</td>
+                            <td class="p-3 text-center text-emerald-400">✅</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/10 transition-colors">
+                            <td class="p-3 font-medium text-gray-300">Screenshot / snapshot</td>
+                            <td class="p-3 text-center text-emerald-400 bg-indigo-500/5">✅</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                            <td class="p-3 text-center text-emerald-400">✅</td>
+                            <td class="p-3 text-center text-emerald-400">✅</td>
+                            <td class="p-3 text-center text-red-500">❌</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/10 transition-colors">
+                            <td class="p-3 font-medium text-gray-300">Native Scrapy integration</td>
+                            <td class="p-3 text-center text-emerald-400 bg-indigo-500/5">✅</td>
+                            <td class="p-3 text-center text-emerald-400">✅</td>
+                            <td class="p-3 text-center text-emerald-400">✅</td>
+                            <td class="p-3 text-center text-emerald-400">✅</td>
+                            <td class="p-3 text-center text-emerald-400">✅</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/10 transition-colors">
+                            <td class="p-3 font-medium text-gray-300">Memory footprint</td>
+                            <td class="p-3 text-center text-emerald-400 bg-indigo-500/5 font-semibold text-xs">🟢 Low</td>
+                            <td class="p-3 text-center text-emerald-400 font-semibold text-xs">🟢 Low</td>
+                            <td class="p-3 text-center text-red-500 font-semibold text-xs">🔴 High</td>
+                            <td class="p-3 text-center text-red-500 font-semibold text-xs">🔴 High</td>
+                            <td class="p-3 text-center text-emerald-400 font-semibold text-xs">🟢 Low</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="p-3.5 rounded-lg border border-amber-500/20 bg-amber-500/5 text-amber-300 text-xs flex gap-2">
+                    <i class="fa-solid fa-triangle-exclamation text-sm shrink-0 mt-0.5"></i>
+                    <span>
+                        ⚠️ <code class="text-amber-200 font-mono">scrapy-playwright</code> passes real browser TLS but does not spoof fingerprint profiles like <code
+                            class="text-amber-200 font-mono">scrapy-stealth</code> does.
+                        <code class="text-amber-200 font-mono">scrapy-impersonate</code> provides TLS/HTTP2 impersonation via <code
+                            class="text-amber-200 font-mono">curl_cffi</code> but lacks built-in rotation, detection, or per-request engine switching.
+                        JavaScript rendering is available via the optional <code class="text-amber-200 font-mono">browser</code> driver — use it selectively for pages that require a full browser.
+                    </span>
+                </div>
+            </section>
+
+            <section id="features" class="scroll-mt-24 mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">✨ Features</h2>
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
+                    <li class="p-3 rounded-lg border border-gray-800 bg-gray-900/10 flex items-center gap-2.5 text-gray-300"><i
+                            class="fa-solid fa-plug text-indigo-400 w-5"></i>Pluggable engine system (scrapy, stealth)
+                    </li>
+                    <li class="p-3 rounded-lg border border-gray-800 bg-gray-900/10 flex items-center gap-2.5 text-gray-300"><i
+                            class="fa-solid fa-sliders text-indigo-400 w-5"></i>Per-request engine selection via request.meta
+                    </li>
+                    <li class="p-3 rounded-lg border border-gray-800 bg-gray-900/10 flex items-center gap-2.5 text-gray-300"><i
+                            class="fa-solid fa-network-wired text-indigo-400 w-5"></i>Proxy support and rotation
+                    </li>
+                    <li class="p-3 rounded-lg border border-gray-800 bg-gray-900/10 flex items-center gap-2.5 text-gray-300"><i
+                            class="fa-solid fa-fingerprint text-indigo-400 w-5"></i>Browser fingerprint rotation
+                    </li>
+                    <li class="p-3 rounded-lg border border-gray-800 bg-gray-900/10 flex items-center gap-2.5 text-gray-300"><i
+                            class="fa-solid fa-rotate-left text-indigo-400 w-5"></i>Smart retry logic
+                    </li>
+                    <li class="p-3 rounded-lg border border-gray-800 bg-gray-900/10 flex items-center gap-2.5 text-gray-300"><i
+                            class="fa-solid fa-shield-halved text-indigo-400 w-5"></i>Anti-bot detection
+                    </li>
+                    <li class="p-3 rounded-lg border border-gray-800 bg-gray-900/10 flex items-center gap-2.5 text-gray-300"><i
+                            class="fa-solid fa-bolt text-indigo-400 w-5"></i>Thread-safe async integration
+                    </li>
+                    <li class="p-3 rounded-lg border border-gray-800 bg-gray-900/10 flex items-center gap-2.5 text-gray-300"><i
+                            class="fa-solid fa-desktop text-indigo-400 w-5"></i>Real-browser engine (CDP) & built-in snapshots
+                    </li>
+                </ul>
+            </section>
+
+            <section id="installation" class="scroll-mt-24 mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">📦
+                    Installation</h2>
+                <div class="code-block relative mb-2">
+                    <pre><code class="language-bash">pip install scrapy-stealth</code></pre>
+                </div>
+                <p class="text-xs text-gray-500">Requires Python 3.11+ and Scrapy 2.12–2.x.</p>
+            </section>
+
+            <section id="setup" class="scroll-mt-24 mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">⚙️ Integration &
+                    Setup</h2>
+
+                <div id="setup-global" class="scroll-mt-24 mb-8">
+                    <h3 class="text-lg font-semibold text-white mb-3">Option 1 — Environment Level (<code
+                            class="text-xs text-indigo-400 font-mono bg-gray-900/60 px-1 py-0.5 rounded">settings.py</code>)</h3>
+                    <div class="code-block relative">
+                            <pre><code class="language-python"># 1. Enable the middleware
+DOWNLOADER_MIDDLEWARES = {
+    "scrapy_stealth.middlewares.StealthDownloaderMiddleware": 950,
+}
+
+# 2. (Optional) Route ALL requests through stealth automatically
+STEALTH_ENABLED = True
+STEALTH_DRIVER  = "turbo"   # "basic" (default), "turbo", or "browser"
+
+# 3. (Optional) Proxy list for automatic rotation
+STEALTH_PROXIES = [
+    "http://proxy1:8080",
+    "http://proxy2:8080",
+    "http://user:pass@proxy3:8080",  # with authentication
+    "socks5://proxy4:1080",
+]</code></pre>
+                    </div>
+                </div>
+
+                <div id="setup-spider" class="scroll-mt-24 mb-6">
+                    <h3 class="text-lg font-semibold text-white mb-3">Option 2 — Isolated Spider Rules (<code
+                            class="text-xs text-indigo-400 font-mono bg-gray-900/60 px-1 py-0.5 rounded">custom_settings</code>)</h3>
+                    <div class="code-block relative mb-3">
+                            <pre><code class="language-python">class MySpider(scrapy.Spider):
+    name = "example"
+
+    custom_settings = {
+        "DOWNLOADER_MIDDLEWARES": {
+            "scrapy_stealth.middlewares.StealthDownloaderMiddleware": 950,
+        },
+        "STEALTH_ENABLED": True,
+        "STEALTH_DRIVER": "turbo",
+        "STEALTH_PROXIES": [
+            "http://proxy1:8080",
+            "http://user:pass@proxy2:8080",
+            "socks5://proxy3:1080",
+        ],
+    }</code></pre>
+                    </div>
+                    <div class="p-3 rounded-lg border border-indigo-500/20 bg-indigo-500/5 text-indigo-300 text-xs flex gap-2">
+                        <i class="fa-solid fa-circle-info text-sm shrink-0 mt-0.5"></i>
+                        <span>Proxies are validated at startup — invalid format or unsupported scheme raises <code
+                                class="text-indigo-200 font-mono">ValueError</code> immediately.</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="quickstart" class="scroll-mt-24 mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">🚀 Quick Start</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Option A — Per-request <span
+                                class="text-sm font-normal text-gray-400">(stealth only on specific requests)</span></h3>
+                        <div class="code-block relative">
+<pre><code class="language-python">yield scrapy.Request(
+    url="https://example.com",
+    meta={"stealth": {}},
+)</code></pre>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Option B — Global mode <span
+                                class="text-sm font-normal text-gray-400">(stealth on every request automatically)</span></h3>
+                        <div class="code-block relative">
+<pre><code class="language-python"># No meta needed — all requests go through stealth
+yield scrapy.Request(url="https://example.com")
+
+# Opt out for a specific request
+yield scrapy.Request(url="https://api.internal/health", meta={"stealth": False})</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="global-config" class="scroll-mt-24 mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">🔧 Global
+                    Configurations</h2>
+                <p class="text-gray-400 text-sm mb-4">Customise package-wide defaults via the shared <code
+                        class="text-indigo-400 font-mono bg-gray-900/60 px-1 py-0.5 rounded">config</code> instance. All settings must
+                    be applied <strong>at module level</strong>, before the spider class.</p>
+
+                <div class="code-block relative mb-6">
+                        <pre><code class="language-python"># myspider.py
+import scrapy
+from scrapy_stealth.config import config
+
+config.DEFAULT_ENGINE  = "stealth"      # "scrapy" (native) or "stealth"
+config.DEFAULT_PROFILE = "chrome_147"   # fallback browser identity
+config.DEFAULT_TIMEOUT = 30             # stealth request timeout in seconds
+config.STEALTH_DRIVER  = "turbo"        # "basic", "turbo", or "browser"
+config.HTTP2           = True
+config.BLOCK_CODES    |= {407}          # expand blocked status codes
+config.BLOCK_KEYWORDS.append("banned")
+config.BROWSER_HEADLESS = True          # browser driver: headless mode
+config.BROWSER_SETTLE_S = 4.0           # browser driver: seconds to wait for JS
+config.BROWSER_EXECUTABLE_PATH = "/usr/bin/brave-browser"
+
+class MySpider(scrapy.Spider):
+    name = "example"
+    ...</code></pre>
+                </div>
+
+                <div class="overflow-x-auto rounded-xl border border-gray-800 bg-gray-900/20">
+                    <table class="w-full text-left border-collapse text-xs md:text-sm whitespace-nowrap">
+                        <thead>
+                        <tr class="bg-gray-900/50 border-b border-gray-800 text-gray-300 font-semibold">
+                            <th class="p-3">Attribute</th>
+                            <th class="p-3">Type</th>
+                            <th class="p-3">Default</th>
+                            <th class="p-3">Description</th>
+                        </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-800/60 text-gray-400">
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">DEFAULT_ENGINE</td>
+                            <td class="p-3 text-indigo-400 font-mono">str</td>
+                            <td class="p-3 font-mono">"scrapy"</td>
+                            <td class="p-3">Engine used when <code>request.meta["stealth"]</code> key is absent</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">DEFAULT_PROFILE</td>
+                            <td class="p-3 text-indigo-400 font-mono">str</td>
+                            <td class="p-3 font-mono">"chrome_147"</td>
+                            <td class="p-3">Browser profile used when none is specified</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">DEFAULT_TIMEOUT</td>
+                            <td class="p-3 text-indigo-400 font-mono">int</td>
+                            <td class="p-3 font-mono">30</td>
+                            <td class="p-3">Request timeout in seconds</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">STEALTH_DRIVER</td>
+                            <td class="p-3 text-indigo-400 font-mono">str</td>
+                            <td class="p-3 font-mono">"basic"</td>
+                            <td class="p-3">Default driver: "basic", "turbo", or "browser"</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">HTTP2</td>
+                            <td class="p-3 text-indigo-400 font-mono">bool</td>
+                            <td class="p-3 font-mono">True</td>
+                            <td class="p-3">HTTP/2 mode; overridable per-request</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">BLOCK_CODES</td>
+                            <td class="p-3 text-indigo-400 font-mono">frozenset[int]</td>
+                            <td class="p-3 font-mono">{403, 429, 503}</td>
+                            <td class="p-3">HTTP status codes considered blocked</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">BLOCK_KEYWORDS</td>
+                            <td class="p-3 text-indigo-400 font-mono">list[str]</td>
+                            <td class="p-3 font-mono">["captcha", …]</td>
+                            <td class="p-3">Body-text patterns considered blocked</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">BROWSER_HEADLESS</td>
+                            <td class="p-3 text-indigo-400 font-mono">bool</td>
+                            <td class="p-3 font-mono">True</td>
+                            <td class="p-3">Browser driver: headless mode (False = visible window)</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">BROWSER_SETTLE_S</td>
+                            <td class="p-3 text-indigo-400 font-mono">float</td>
+                            <td class="p-3 font-mono">4.0</td>
+                            <td class="p-3">Browser driver: seconds to wait after navigation for JS</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">BROWSER_NO_SANDBOX</td>
+                            <td class="p-3 text-indigo-400 font-mono">bool | None</td>
+                            <td class="p-3 font-mono">None</td>
+                            <td class="p-3">Disable Chrome sandbox (auto-detects root/Docker)</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">BROWSER_EXECUTABLE_PATH</td>
+                            <td class="p-3 text-indigo-400 font-mono">str | None</td>
+                            <td class="p-3 font-mono">None</td>
+                            <td class="p-3">Path to custom browser binary (e.g. Brave)</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="per-request" class="scroll-mt-24 mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">⚙️ Per-Request
+                    Config</h2>
+                <p class="text-gray-400 text-sm mb-4">All options are passed via <code
+                        class="text-indigo-400 font-mono bg-gray-900/60 px-1 py-0.5 rounded">request.meta["stealth"]</code>.</p>
+                <div class="code-block relative mb-6">
+                        <pre><code class="language-python">yield scrapy.Request(
+    url,
+    meta={
+        "stealth": {
+            "driver": "turbo",
+            "profile": "chrome_147",
+            "proxy": "http://user:pass@proxy:8080",
+            "stealth_timeout": 60,
+            "http2": True,
+            "rotate_proxy": True,
+            "rotate_profile": True,
+        }
+    },
+)</code></pre>
+                </div>
+
+                <div class="overflow-x-auto rounded-xl border border-gray-800 bg-gray-900/20">
+                    <table class="w-full text-left border-collapse text-xs md:text-sm whitespace-nowrap">
+                        <thead>
+                        <tr class="bg-gray-900/50 border-b border-gray-800 text-gray-300 font-semibold">
+                            <th class="p-3">Key</th>
+                            <th class="p-3">Type</th>
+                            <th class="p-3">Description</th>
+                        </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-800/60 text-gray-400">
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">driver</td>
+                            <td class="p-3 text-indigo-400 font-mono">str</td>
+                            <td class="p-3">"basic", "turbo", or "browser" — overrides config</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">profile</td>
+                            <td class="p-3 text-indigo-400 font-mono">str</td>
+                            <td class="p-3">Browser profile (e.g. "chrome_147", "safari_ios_18_1_1")</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">proxy</td>
+                            <td class="p-3 text-indigo-400 font-mono">str</td>
+                            <td class="p-3">Explicit proxy URL</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">stealth_timeout</td>
+                            <td class="p-3 text-indigo-400 font-mono">int</td>
+                            <td class="p-3">Per-request timeout in seconds</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">http2</td>
+                            <td class="p-3 text-indigo-400 font-mono">bool</td>
+                            <td class="p-3">True = HTTP/2, False = HTTP/1.1</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">rotate_proxy</td>
+                            <td class="p-3 text-indigo-400 font-mono">bool</td>
+                            <td class="p-3">Auto-pick a proxy from STEALTH_PROXIES</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">rotate_profile</td>
+                            <td class="p-3 text-indigo-400 font-mono">bool</td>
+                            <td class="p-3">Auto-pick a random browser profile</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">headless</td>
+                            <td class="p-3 text-indigo-400 font-mono">bool</td>
+                            <td class="p-3">Browser driver only: True = headless, False = visible</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">settle</td>
+                            <td class="p-3 text-indigo-400 font-mono">float</td>
+                            <td class="p-3">Browser driver only: seconds to wait for JS (default 4.0)</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">snapshot</td>
+                            <td class="p-3 text-indigo-400 font-mono">bool</td>
+                            <td class="p-3">Browser driver only: capture PNG to <code>response.meta["snapshot_content"]</code></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="browser-engine" class="scroll-mt-24 mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">🖥️ Real Browser
+                    Integration Engine</h2>
+                <p class="text-gray-400 text-sm mb-4">Leverages Chrome DevTools connection logic directly to navigate dense,
+                    client-rendered JavaScript protections effortlessly without needing standard WebDriver setups.</p>
+
+                <h3 class="text-md font-semibold text-gray-200 mb-2 mt-6">Per-request Implementation</h3>
+                <div class="code-block relative mb-4">
+                        <pre><code class="language-python">yield scrapy.Request(
+    url,
+    meta={
+        "stealth": {
+            "driver": "browser",
+            "headless": False,   # harder to detect fingerprint
+            "settle": 4.0,       # allow JS tasks to finalize
+        }
+    },
+)</code></pre>
+                </div>
+
+                <h3 class="text-md font-semibold text-gray-200 mb-2 mt-6">Heavy Cloudflare / Custom Binaries & Docker</h3>
+                <div class="code-block relative mb-4">
+                        <pre><code class="language-python">from scrapy_stealth.config import config
+
+# Increase settle time for heavy checks globally
+config.STEALTH_DRIVER   = "browser"
+config.BROWSER_SETTLE_S = 12.0
+
+# Using a non-standard browser (e.g., Brave)
+config.BROWSER_EXECUTABLE_PATH = "/usr/bin/brave-browser"
+
+# Running in Docker as root (force no-sandbox)
+config.BROWSER_NO_SANDBOX = True</code></pre>
+                </div>
+
+                <div class="p-3 rounded-lg border border-indigo-500/20 bg-indigo-500/5 text-indigo-300 text-xs flex gap-2">
+                    <i class="fa-solid fa-circle-info text-sm shrink-0 mt-0.5"></i>
+                    <span><strong>Performance Notice</strong>: The browser engine is slower than basic/turbo (~5-15s execution profiles vs <2s). Isolate complex, protected URLs into this engine while routing base lookups via turbo.</span>
+                </div>
+            </section>
+
+            <section id="screenshots" class="scroll-mt-24 mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">📸 Screenshots</h2>
+                <p class="text-gray-400 text-sm mb-4">Capture a PNG screenshot of any page rendered by the <code
+                        class="text-indigo-400 font-mono bg-gray-900/60 px-1 py-0.5 rounded">browser</code> driver and save it to disk.
+                </p>
+
+                <h3 class="text-md font-semibold text-gray-200 mb-2">Enable on the request</h3>
+                <div class="code-block relative mb-6">
+                        <pre><code class="language-python">yield scrapy.Request(
+    url,
+    meta={
+        "stealth": {
+            "driver": "browser",
+            "snapshot": True,
+        }
+    },
+    callback=self.parse,
+)</code></pre>
+                </div>
+
+                <h3 class="text-md font-semibold text-gray-200 mb-2">Auto-save with snapshot decorator</h3>
+                <div class="code-block relative mb-6">
+                        <pre><code class="language-python">from scrapy_stealth.decorators import snapshot
+
+class MySpider(scrapy.Spider):
+
+    @snapshot
+    def parse(self, response): ...
+
+    @snapshot(path="stealth_shots/page.png")
+    def parse(self, response): ...
+
+    @snapshot(path=lambda r: r.url.split("/")[-1] + ".png")
+    def parse(self, response): ...</code></pre>
+                </div>
+            </section>
+
+            <section id="rotation" class="scroll-mt-24 mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">🔁 Automatic
+                    Rotation</h2>
+                <div class="code-block relative">
+                        <pre><code class="language-python">yield scrapy.Request(
+    url,
+    meta={
+        "stealth": {
+            "rotate_proxy": True,
+            "rotate_profile": True,
+        }
+    },
+)</code></pre>
+                </div>
+            </section>
+
+            <section id="strategies" class="scroll-mt-24 mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">🧩 Strategies</h2>
+
+                <div id="proxy-rotation" class="scroll-mt-24 mb-6">
+                    <h3 class="text-md font-semibold text-gray-200 mb-2">Proxy Rotation Handler</h3>
+                    <div class="code-block relative"><pre><code class="language-python">from scrapy_stealth.strategies.proxy import ProxyRotator
+proxy_rotator = ProxyRotator([
+    "http://proxy1:8080",
+    "http://proxy2:8080"
+])
+
+yield scrapy.Request(
+    url,
+    meta={
+        "stealth": {
+            "proxy": proxy_rotator.get(),
+        }
+    },
+)</code></pre>
+                    </div>
+                </div>
+
+                <div id="fingerprint-rotation" class="scroll-mt-24 mb-6">
+                    <h3 class="text-md font-semibold text-gray-200 mb-2">Fingerprint Engine Rotation</h3>
+                    <div class="code-block relative"><pre><code class="language-python">from scrapy_stealth.strategies.fingerprint import ProfileRotator
+fp = ProfileRotator()
+
+yield scrapy.Request(
+    url,
+    meta={
+        "stealth": {
+            "profile": fp.get(),
+        }
+    },
+)</code></pre>
+                    </div>
+                </div>
+
+                <div id="intelligent-retry" class="scroll-mt-24">
+                    <h3 class="text-md font-semibold text-gray-200 mb-2">Intelligent Retry Controller</h3>
+                    <div class="code-block relative"><pre><code class="language-python">from scrapy_stealth.strategies.retry import RetryHandler
+retry = RetryHandler()
+
+def parse(self, response):
+    if retry.should_retry(response):
+        yield retry.build(response.request)
+        return</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <section id="antibot" class="scroll-mt-24 mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">🛡️ Anti-Bot
+                    Detection</h2>
+                <div class="code-block relative">
+                        <pre><code class="language-python">from scrapy_stealth.detectors.antibot import AntiBotDetector
+detector = AntiBotDetector()
+
+if detector.is_blocked(response):
+    print("Block state confirmed.")</code></pre>
+                </div>
+            </section>
+
+            <section id="example" class="scroll-mt-24 mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">📊 Full Practical
+                    Implementation</h2>
+                <div class="code-block relative">
+                        <pre><code class="language-python">import scrapy
+
+class ExampleSpider(scrapy.Spider):
+    name = "example"
+
+    def start_requests(self):
+        yield scrapy.Request(
+            "https://example.com",
+            meta={
+                "stealth": {
+                    "rotate_proxy": True,
+                    "rotate_profile": True
+                }
+            },
+        )
+
+    def parse(self, response):
+        yield {
+            "title": response.css("title::text").get(),
+            "url": response.url,
+        }</code></pre>
+                </div>
+            </section>
+
+            <section id="performance" class="scroll-mt-24 mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">⚡ Performance
+                    Insight</h2>
+                <p class="text-gray-400 text-sm mb-4">Using stealth selectively offers:</p>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-bolt text-emerald-400"></i> Faster crawling (Scrapy for
+                        simple pages).
+                    </li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-dollar-sign text-emerald-400"></i> Lower proxy cost.</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-shield text-indigo-400"></i> Better success rate on
+                        protected pages.
+                    </li>
+                </ul>
+            </section>
+
+            <section id="distribution" class="scroll-mt-24 mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">📦 Distribution &
+                    Ecosystem</h2>
+                <p class="text-gray-400 text-sm mb-6">Track distributions, source revisions, and live download tallies synced directly
+                    across public distribution indexes.</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                    <div class="p-4 rounded-xl border border-gray-800 bg-gray-900/30 flex items-center gap-4">
+                        <div class="p-3 rounded-lg bg-indigo-500/10 text-indigo-400"><i class="fa-regular fa-star text-lg"></i></div>
+                        <div>
+                            <div class="text-lg font-bold text-white tracking-tight"><span class="stars-lbl">...</span></div>
+                            <div class="text-xs text-gray-500 mt-0.5">GitHub Stars</div>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-xl border border-gray-800 bg-gray-900/30 flex items-center gap-4">
+                        <div class="p-3 rounded-lg bg-indigo-500/10 text-indigo-400"><i class="fa-solid fa-download text-lg"></i></div>
+                        <div>
+                            <div class="text-lg font-bold text-white tracking-tight"><span class="downloads-lbl">...</span></div>
+                            <div class="text-xs text-gray-500 mt-0.5">Total Downloads</div>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-xl border border-gray-800 bg-gray-900/30 flex items-center gap-4">
+                        <div class="p-3 rounded-lg bg-emerald-500/10 text-emerald-400"><i class="fa-solid fa-tag text-lg"></i></div>
+                        <div>
+                            <div class="text-lg font-bold text-white tracking-tight text-emerald-400 font-mono version-lbl">v…</div>
+                            <div class="text-xs text-gray-500 mt-0.5">PyPI Release</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                    <div class="p-5 rounded-xl border border-gray-800 bg-gray-900/20 hover:border-indigo-500/40 transition-all flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-white font-semibold flex items-center gap-2 mb-2"><i
+                                    class="fa-brands fa-python text-amber-500"></i> PyPI Distribution Channels</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed mb-4">Serves compiled target wheels and project
+                                dependencies globally across pipeline infrastructures.</p>
+                            <div class="flex flex-wrap gap-1.5 mb-4">
+                                <img src="https://img.shields.io/pypi/v/scrapy-stealth?color=7c4dff&label=version" alt="PyPI version">
+                                <img src="https://img.shields.io/pypi/pyversions/scrapy-stealth?color=00d4aa" alt="Python versions">
+                            </div>
+                        </div>
+                        <a href="https://pypi.org/project/scrapy-stealth/" target="_blank"
+                           class="w-full text-center py-2 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg transition-colors">View
+                            PyPI Core Project <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></a>
+                    </div>
+                    <div class="p-5 rounded-xl border border-gray-800 bg-gray-900/20 hover:border-indigo-500/40 transition-all flex flex-col justify-between">
+                        <div>
+                            <h4 class="text-white font-semibold flex items-center gap-2 mb-2"><i class="fa-brands fa-github"></i>
+                                GitHub Release Tags</h4>
+                            <p class="text-xs text-gray-400 leading-relaxed mb-4">Provides immediate access to full development source
+                                code assets, tracking histories, and contribution logs.</p>
+                            <div class="flex flex-wrap gap-1.5 mb-4">
+                                <img src="https://img.shields.io/github/v/release/fawadss1/scrapy-stealth?color=7c4dff&label=latest"
+                                     alt="latest release">
+                                <img src="https://img.shields.io/github/license/fawadss1/scrapy-stealth?color=00d4aa" alt="license">
+                            </div>
+                        </div>
+                        <a href="https://github.com/fawadss1/scrapy-stealth/releases" target="_blank"
+                           class="w-full text-center py-2 text-xs font-semibold text-white border border-gray-700 hover:bg-gray-800/50 rounded-lg transition-colors">Explore
+                            GitHub Repository <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></a>
+                    </div>
+                </div>
+
+                <div class="border border-gray-800 rounded-xl overflow-hidden bg-gray-900/10">
+                    <div class="flex border-b border-gray-800 bg-gray-900/40 px-2">
+                        <button onclick="switchTab(event, 'p-pip')"
+                                class="tab-btn px-4 py-2.5 text-xs font-medium text-white border-b-2 border-indigo-500 transition-all">
+                            pip
+                        </button>
+                        <button onclick="switchTab(event, 'p-uv')"
+                                class="tab-btn px-4 py-2.5 text-xs font-medium text-gray-500 hover:text-gray-300 transition-all">uv
+                        </button>
+                        <button onclick="switchTab(event, 'p-poetry')"
+                                class="tab-btn px-4 py-2.5 text-xs font-medium text-gray-500 hover:text-gray-300 transition-all">poetry
+                        </button>
+                        <button onclick="switchTab(event, 'p-pipx')"
+                                class="tab-btn px-4 py-2.5 text-xs font-medium text-gray-500 hover:text-gray-300 transition-all">pipx
+                        </button>
+                    </div>
+                    <div class="p-0">
+                        <div id="p-pip" class="tab-pane block code-block relative">
+                            <pre><code class="language-bash">pip install scrapy-stealth</code></pre>
+                        </div>
+                        <div id="p-uv" class="tab-pane hidden code-block relative">
+                            <pre><code class="language-bash">uv add scrapy-stealth</code></pre>
+                        </div>
+                        <div id="p-poetry" class="tab-pane hidden code-block relative">
+                            <pre><code class="language-bash">poetry add scrapy-stealth</code></pre>
+                        </div>
+                        <div id="p-pipx" class="tab-pane hidden code-block relative">
+                            <pre><code class="language-bash">pipx install scrapy-stealth</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="changelog" class="scroll-mt-24 mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">📜 Release History
+                    & Changelogs</h2>
+                <p class="text-sm text-gray-400 mb-4">Currently tracking stable release: <strong
+                        class="text-indigo-400 font-mono version-lbl">v…</strong>.</p>
+
+                <div class="overflow-x-auto rounded-xl border border-gray-800 bg-gray-900/20 mb-4">
+                    <table class="w-full text-left border-collapse text-sm" id="releases-table">
+                        <thead>
+                        <tr class="bg-gray-900/50 border-b border-gray-800 text-gray-300 font-semibold">
+                            <th class="p-3">Version Tag</th>
+                            <th class="p-3">Deployment Date</th>
+                            <th class="p-3">Artifact Links</th>
+                        </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-800/60 text-gray-400 font-mono">
+                        <tr>
+                            <td colspan="3" class="p-4 text-center text-gray-500 text-xs italic">Awaiting API payload synchronization
+                                loops...
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="text-xs text-gray-500 space-x-2">
+                    <a href="https://github.com/fawadss1/scrapy-stealth/blob/master/CHANGELOG.md" target="_blank"
+                       class="text-indigo-400 hover:underline">CHANGELOG.md</a>
+                    <span>•</span>
+                    <a href="https://github.com/fawadss1/scrapy-stealth/blob/master/CONTRIBUTING.md" target="_blank"
+                       class="text-indigo-400 hover:underline">CONTRIBUTING.md</a>
+                </div>
+            </section>
+
+            <section id="license" class="scroll-mt-24 mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">📄 License</h2>
+                <p class="text-sm text-gray-400">Distributed completely under the terms of the open-source <strong class="text-white">MIT
+                    License</strong> schema structural controls.</p>
+            </section>
+
+            <footer class="mt-16 pt-6 border-t border-gray-800/80 text-xs text-gray-500 flex flex-col sm:flex-row justify-between gap-2">
+                <p>scrapy-stealth — Stealthy Crawling. Maximum Results.</p>
+                <p>Maintained by <a href="https://github.com/fawadss1" target="_blank"
+                                    class="text-gray-400 hover:text-white transition-colors">fawadss1</a> · MIT Licensed</p>
+            </footer>
+        </main>
+    </div>
+</div>
+
+<div id="sidebar-drawer"
+     class="fixed inset-0 z-50 bg-[#0d1117] w-72 border-r border-gray-800 p-6 transform -translate-x-full transition-transform duration-300 lg:hidden shadow-2xl overflow-y-auto">
+    <div class="flex items-center justify-between mb-8">
+        <span class="font-bold text-white">Documentation Menu</span>
+        <button onclick="document.getElementById('sidebar-drawer').classList.add('-translate-x-full')"
+                class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+    </div>
+    <div id="mobile-nav-target" class="space-y-1"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="./js/metrics.js"></script>
+</body>
+</html>
