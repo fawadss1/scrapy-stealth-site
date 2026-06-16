@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scrapy-Stealth Documentation</title>
+    <link rel="icon" type="image/png" href="./img/favicon.ico">
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" rel="stylesheet">
@@ -80,20 +81,20 @@
                 <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
                    href="#why">Why scrapy-stealth?</a>
                 <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
-                   href="#comparison">Comparison</a>
+                   href="#comparison">Comparison Matrix</a>
                 <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
-                   href="#features">Features</a>
+                   href="#features">Core Features</a>
                 <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
                    href="#installation">Installation</a>
 
                 <div class="pt-1 pb-1">
                     <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
-                       href="#setup">Setup</a>
+                       href="#setup">Initial Setup</a>
                     <div class="mt-1 ml-4 pl-3 border-l-2 border-gray-800/60 space-y-0.5">
                         <a class="nav-link relative flex items-center px-3 py-1.5 text-xs font-medium rounded-md text-gray-500 hover:text-gray-300 hover:bg-gray-800/30 transition-all [&.active]:text-indigo-400"
-                           href="#setup-global">Global Level</a>
+                           href="#setup-global">Option 1: Global Settings</a>
                         <a class="nav-link relative flex items-center px-3 py-1.5 text-xs font-medium rounded-md text-gray-500 hover:text-gray-300 hover:bg-gray-800/30 transition-all [&.active]:text-indigo-400"
-                           href="#setup-spider">Per-Spider Level</a>
+                           href="#setup-spider">Option 2: Per-Spider Settings</a>
                     </div>
                 </div>
 
@@ -102,51 +103,48 @@
                 <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
                    href="#global-config">Global Configuration</a>
                 <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
-                   href="#per-request">Per-Request Config</a>
+                   href="#per-request">Per-Request Options</a>
                 <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
-                   href="#browser-engine">Browser Engine</a>
+                   href="#browser-engine">Browser Engine Details</a>
                 <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
-                   href="#screenshots">Screenshots</a>
+                   href="#screenshots">Page Screenshots</a>
                 <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
                    href="#rotation">Automatic Rotation</a>
 
                 <div class="pt-1 pb-1">
                     <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
-                       href="#strategies">Strategies</a>
+                       href="#strategies">Strategies & Core Modules</a>
                     <div class="mt-1 ml-4 pl-3 border-l-2 border-gray-800/60 space-y-0.5">
                         <a class="nav-link relative flex items-center px-3 py-1.5 text-xs font-medium rounded-md text-gray-500 hover:text-gray-300 hover:bg-gray-800/30 transition-all [&.active]:text-indigo-400"
-                           href="#proxy-rotation">Proxy Rotation</a>
+                           href="#proxy-rotation">Proxy Rotation Strategy</a>
                         <a class="nav-link relative flex items-center px-3 py-1.5 text-xs font-medium rounded-md text-gray-500 hover:text-gray-300 hover:bg-gray-800/30 transition-all [&.active]:text-indigo-400"
-                           href="#fingerprint-rotation">Fingerprint Engine</a>
+                           href="#fingerprint-rotation">Fingerprint Strategy</a>
                         <a class="nav-link relative flex items-center px-3 py-1.5 text-xs font-medium rounded-md text-gray-500 hover:text-gray-300 hover:bg-gray-800/30 transition-all [&.active]:text-indigo-400"
-                           href="#intelligent-retry">Intelligent Retry</a>
+                           href="#intelligent-retry">Intelligent Retry Strategy</a>
                     </div>
                 </div>
 
                 <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
-                   href="#antibot">Anti-Bot Detection</a>
+                   href="#antibot">Anti-Bot Detection Module</a>
                 <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
-                   href="#example">Full Example</a>
+                   href="#example">Complete Deployment Example</a>
                 <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
-                   href="#performance">Performance Insight</a>
+                   href="#performance">Performance Optimization</a>
                 <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
-                   href="#distribution">Distribution</a>
-                <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
-                   href="#changelog">Changelog & Contrib</a>
-                <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
-                   href="#license">License</a>
+                   href="#releases-tracking">Dynamic Trackers</a>
             </nav>
         </aside>
+
         <main class="flex-1 min-w-0 pt-6 pb-24">
             <div id="top"></div>
 
             <div class="relative overflow-hidden rounded-2xl border border-gray-800/80 bg-gradient-to-br from-indigo-950/40 via-[#111622] to-emerald-950/20 px-6 py-12 text-center mb-12 shadow-2xl">
-                <img src="./img/logo.png" alt="scrapy-stealth logo" class="w-100 h-30 mx-auto mb-5 drop-shadow-lg object-contain">
+                <img src="https://raw.githubusercontent.com/fawadss1/scrapy-stealth/master/docs/static/logo.png"
+                     alt="scrapy-stealth logo" class="w-full max-w-[500px] mx-auto mb-5 drop-shadow-lg object-contain">
                 <h1 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-3">scrapy-stealth</h1>
                 <p class="text-lg md:text-xl text-indigo-200/90 font-medium mb-4">Stealthy Crawling. Maximum Results.</p>
                 <p class="max-w-2xl mx-auto text-sm md:text-base text-gray-400 leading-relaxed mb-6">
-                    A pluggable anti-bot and stealth framework for Scrapy — browser impersonation, proxy rotation, fingerprint cycling,
-                    and intelligent retry strategies for production-grade crawling.
+                    A pluggable anti-bot and stealth framework for Scrapy.
                 </p>
                 <div class="flex flex-wrap justify-center gap-2">
                     <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-semibold bg-indigo-500/10 text-indigo-300 border border-indigo-500/20"><i
@@ -155,8 +153,10 @@
                             class="fa-solid fa-spider"></i>Scrapy 2.12–2.x</span>
                     <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"><i
                             class="fa-solid fa-scale-balanced"></i>MIT License</span>
-                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"><i
-                            class="fa-solid fa-tag"></i><span class="version-lbl">v…</span></span>
+                    <a href="https://pypi.org/project/scrapy-stealth/" target="_blank"
+                       class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 hover:border-emerald-500/40 transition-colors">
+                        <i class="fa-solid fa-tag"></i><span class="version-lbl">v…</span>
+                    </a>
                 </div>
             </div>
 
@@ -165,9 +165,7 @@
                 <p class="text-gray-400 leading-relaxed">
                     <code class="text-indigo-400 bg-indigo-950/30 px-1.5 py-0.5 rounded text-sm font-mono">scrapy-stealth</code>
                     extends Scrapy with browser impersonation, proxy rotation, fingerprint cycling, and intelligent retry strategies —
-                    designed for large-scale, production-grade crawling. It plugs in as a downloader middleware and lets you opt
-                    individual requests in or out of "stealth mode" using <code
-                        class="text-indigo-400 bg-indigo-950/30 px-1.5 py-0.5 rounded text-sm font-mono">request.meta</code>.
+                    designed for large-scale, production-grade crawling.
                 </p>
             </section>
 
@@ -175,44 +173,62 @@
                 <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">🧠 Why
                     scrapy-stealth?</h2>
                 <p class="text-gray-400 mb-6">Scrapy is fast and powerful, but modern websites use advanced anti-bot protections such
-                    as TLS fingerprinting, browser behavior checks, and localized rate limits.</p>
+                    as:</p>
+
+                <ul class="list-disc pl-6 mb-6 text-gray-400 space-y-1 text-sm">
+                    <li>TLS fingerprinting</li>
+                    <li>Browser behavior detection</li>
+                    <li>Rate limiting and IP blocking</li>
+                </ul>
+
+                <p class="text-gray-400 mb-6"><code class="text-indigo-400 bg-indigo-950/30 px-1.5 py-0.5 rounded font-mono">scrapy-stealth</code>
+                    helps by adding:</p>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                     <div class="flex items-start gap-4 p-4 rounded-xl border border-gray-800 bg-gray-900/30">
                         <div class="p-2.5 rounded-lg bg-emerald-500/10 text-emerald-400"><i class="fa-solid fa-dna text-xl"></i></div>
                         <div>
-                            <h4 class="text-white font-semibold text-sm mb-1">Browser-level impersonation</h4>
-                            <p class="text-xs text-gray-500">Deep emulation of modern TLS structures and HTTP/2 setups.</p>
+                            <h4 class="text-white font-semibold text-sm mb-1">🧬 Browser-level impersonation</h4>
+                            <p class="text-xs text-gray-500">Deep emulation of modern TLS structures and HTTP/2 fingerprints.</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-4 p-4 rounded-xl border border-gray-800 bg-gray-900/30">
                         <div class="p-2.5 rounded-lg bg-indigo-500/10 text-indigo-400"><i class="fa-solid fa-rotate text-xl"></i></div>
                         <div>
-                            <h4 class="text-white font-semibold text-sm mb-1">Smart Retry Strategy</h4>
+                            <h4 class="text-white font-semibold text-sm mb-1">🔁 Smarter retry strategies</h4>
                             <p class="text-xs text-gray-500">Heuristics engineered to intercept temporary challenges without loops.</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-4 p-4 rounded-xl border border-gray-800 bg-gray-900/30">
                         <div class="p-2.5 rounded-lg bg-indigo-500/10 text-indigo-400"><i class="fa-solid fa-globe text-xl"></i></div>
                         <div>
-                            <h4 class="text-white font-semibold text-sm mb-1">Proxy & Profile Rotation</h4>
-                            <p class="text-xs text-gray-500">Dynamically maps clean browser fingerprints matching routing states.</p>
+                            <h4 class="text-white font-semibold text-sm mb-1">🌐 Proxy and fingerprint rotation</h4>
+                            <p class="text-xs text-gray-500">Dynamically cycles routing footprints cleanly matching agent
+                                properties.</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-4 p-4 rounded-xl border border-gray-800 bg-gray-900/30">
                         <div class="p-2.5 rounded-lg bg-emerald-500/10 text-emerald-400"><i
                                 class="fa-solid fa-shield-halved text-xl"></i></div>
                         <div>
-                            <h4 class="text-white font-semibold text-sm mb-1">Advanced Anti-Bot Evasion</h4>
-                            <p class="text-xs text-gray-500">Defeats Cloudflare, Akamai and common static scripts out of the box.</p>
+                            <h4 class="text-white font-semibold text-sm mb-1">🛡️ Anti-bot detection</h4>
+                            <p class="text-xs text-gray-500">Defeats strict platform defenses out of the box.</p>
                         </div>
                     </div>
+                </div>
+
+                <div class="p-4 rounded-xl border border-emerald-800/30 bg-emerald-950/10">
+                    <h4 class="text-white font-semibold text-sm mb-2">📊 Expected Result</h4>
+                    <ul class="list-disc pl-5 text-xs text-gray-400 space-y-1">
+                        <li>🚀 Higher success rate</li>
+                        <li>💰 Lower proxy cost</li>
+                        <li>🛡️ More stable crawls</li>
+                    </ul>
                 </div>
             </section>
 
             <section id="comparison" class="scroll-mt-24 mb-12">
-                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">📊 Feature Mapping
-                    & Comparison</h2>
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">📊 Comparison</h2>
                 <div class="overflow-x-auto rounded-xl border border-gray-800 bg-gray-900/20 mb-4">
                     <table class="w-full text-left border-collapse text-sm whitespace-nowrap">
                         <thead>
@@ -326,22 +342,22 @@
                             <td class="p-3 font-medium text-gray-300">Memory footprint</td>
                             <td class="p-3 text-center text-emerald-400 bg-indigo-500/5 font-semibold text-xs">🟢 Low</td>
                             <td class="p-3 text-center text-emerald-400 font-semibold text-xs">🟢 Low</td>
-                            <td class="p-3 text-center text-red-500 font-semibold text-xs">🔴 High</td>
-                            <td class="p-3 text-center text-red-500 font-semibold text-xs">🔴 High</td>
+                            <td class="p-3 text-center text-red-400 font-semibold text-xs">🔴 High</td>
+                            <td class="p-3 text-center text-red-400 font-semibold text-xs">🔴 High</td>
                             <td class="p-3 text-center text-emerald-400 font-semibold text-xs">🟢 Low</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="p-3.5 rounded-lg border border-amber-500/20 bg-amber-500/5 text-amber-300 text-xs flex gap-2">
-                    <i class="fa-solid fa-triangle-exclamation text-sm shrink-0 mt-0.5"></i>
-                    <span>
-                        ⚠️ <code class="text-amber-200 font-mono">scrapy-playwright</code> passes real browser TLS but does not spoof fingerprint profiles like <code
-                            class="text-amber-200 font-mono">scrapy-stealth</code> does.
-                        <code class="text-amber-200 font-mono">scrapy-impersonate</code> provides TLS/HTTP2 impersonation via <code
-                            class="text-amber-200 font-mono">curl_cffi</code> but lacks built-in rotation, detection, or per-request engine switching.
-                        JavaScript rendering is available via the optional <code class="text-amber-200 font-mono">browser</code> driver — use it selectively for pages that require a full browser.
-                    </span>
+
+                <div class="text-xs text-gray-500 space-y-1 bg-gray-900/40 p-3.5 rounded-lg border border-gray-800/80 leading-relaxed">
+                    <p>⚠️ <code class="text-gray-400 font-mono">scrapy-playwright</code> passes real browser TLS but does not spoof
+                        fingerprint profiles like <code class="text-gray-400 font-mono">scrapy-stealth</code> does.</p>
+                    <p>ℹ️ <code class="text-gray-400 font-mono">scrapy-impersonate</code> provides TLS/HTTP2 impersonation via <code
+                            class="text-gray-400 font-mono">curl_cffi</code> but lacks built-in rotation, detection, or per-request
+                        engine switching.</p>
+                    <p>💡 JavaScript rendering is available via the optional <code class="text-gray-400 font-mono">browser</code> driver
+                        — use it selectively for pages that require a full browser.</p>
                 </div>
             </section>
 
@@ -349,28 +365,38 @@
                 <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">✨ Features</h2>
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
                     <li class="p-3 rounded-lg border border-gray-800 bg-gray-900/10 flex items-center gap-2.5 text-gray-300"><i
-                            class="fa-solid fa-plug text-indigo-400 w-5"></i>Pluggable engine system (scrapy, stealth)
+                            class="fa-solid fa-plug text-indigo-400 w-5"></i>🔌 Pluggable engine system (<code
+                            class="text-xs font-mono">scrapy</code>, <code class="text-xs font-mono">stealth</code>)
                     </li>
                     <li class="p-3 rounded-lg border border-gray-800 bg-gray-900/10 flex items-center gap-2.5 text-gray-300"><i
-                            class="fa-solid fa-sliders text-indigo-400 w-5"></i>Per-request engine selection via request.meta
+                            class="fa-solid fa-sliders text-indigo-400 w-5"></i>🧠 Per-request engine selection via <code
+                            class="text-xs font-mono">request.meta</code></li>
+                    <li class="p-3 rounded-lg border border-gray-800 bg-gray-900/10 flex items-center gap-2.5 text-gray-300"><i
+                            class="fa-solid fa-network-wired text-indigo-400 w-5"></i>🌐 Proxy support and rotation
                     </li>
                     <li class="p-3 rounded-lg border border-gray-800 bg-gray-900/10 flex items-center gap-2.5 text-gray-300"><i
-                            class="fa-solid fa-network-wired text-indigo-400 w-5"></i>Proxy support and rotation
+                            class="fa-solid fa-fingerprint text-indigo-400 w-5"></i>🧬 Browser fingerprint rotation
                     </li>
                     <li class="p-3 rounded-lg border border-gray-800 bg-gray-900/10 flex items-center gap-2.5 text-gray-300"><i
-                            class="fa-solid fa-fingerprint text-indigo-400 w-5"></i>Browser fingerprint rotation
+                            class="fa-solid fa-arrows-spin text-indigo-400 w-5"></i>🔁 Smart retry logic
                     </li>
                     <li class="p-3 rounded-lg border border-gray-800 bg-gray-900/10 flex items-center gap-2.5 text-gray-300"><i
-                            class="fa-solid fa-rotate-left text-indigo-400 w-5"></i>Smart retry logic
+                            class="fa-solid fa-user-shield text-indigo-400 w-5"></i>🛡️ Anti-bot detection (status + content-based,
+                        Cloudflare, Akamai)
                     </li>
                     <li class="p-3 rounded-lg border border-gray-800 bg-gray-900/10 flex items-center gap-2.5 text-gray-300"><i
-                            class="fa-solid fa-shield-halved text-indigo-400 w-5"></i>Anti-bot detection
+                            class="fa-solid fa-bolt text-indigo-400 w-5"></i>⚡ Thread-safe async integration
                     </li>
                     <li class="p-3 rounded-lg border border-gray-800 bg-gray-900/10 flex items-center gap-2.5 text-gray-300"><i
-                            class="fa-solid fa-bolt text-indigo-400 w-5"></i>Thread-safe async integration
+                            class="fa-solid fa-window-maximize text-indigo-400 w-5"></i>🖥️ Real-browser engine (CDP) for JS-heavy pages
                     </li>
                     <li class="p-3 rounded-lg border border-gray-800 bg-gray-900/10 flex items-center gap-2.5 text-gray-300"><i
-                            class="fa-solid fa-desktop text-indigo-400 w-5"></i>Real-browser engine (CDP) & built-in snapshots
+                            class="fa-solid fa-power-off text-indigo-400 w-5"></i>🔄 Intelligent browser restart — restarts on
+                        consecutive bans, not a fixed request count
+                    </li>
+                    <li class="p-3 rounded-lg border border-gray-800 bg-gray-900/10 flex items-center gap-2.5 text-gray-300"><i
+                            class="fa-solid fa-camera text-indigo-400 w-5"></i>📸 Built-in snapshot decorator (<code
+                            class="text-xs font-mono">scrapy_stealth.decorators.snapshot</code>)
                     </li>
                 </ul>
             </section>
@@ -378,44 +404,45 @@
             <section id="installation" class="scroll-mt-24 mb-12">
                 <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">📦
                     Installation</h2>
-                <div class="code-block relative mb-2">
+                <div class="code-block">
                     <pre><code class="language-bash">pip install scrapy-stealth</code></pre>
                 </div>
-                <p class="text-xs text-gray-500">Requires Python 3.11+ and Scrapy 2.12–2.x.</p>
+                <p class="text-xs text-gray-500 mt-2">💡 Requires Python 3.11+ and Scrapy 2.12–2.x</p>
             </section>
 
             <section id="setup" class="scroll-mt-24 mb-12">
-                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">⚙️ Integration &
-                    Setup</h2>
-
-                <div id="setup-global" class="scroll-mt-24 mb-8">
-                    <h3 class="text-lg font-semibold text-white mb-3">Option 1 — Environment Level (<code
-                            class="text-xs text-indigo-400 font-mono bg-gray-900/60 px-1 py-0.5 rounded">settings.py</code>)</h3>
-                    <div class="code-block relative">
-                            <pre><code class="language-python"># 1. Enable the middleware
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">⚙️ Setup</h2>
+                <div class="space-y-6">
+                    <div id="setup-global" class="scroll-mt-24">
+                        <h3 class="text-lg font-semibold text-white mb-2">Option 1 — Global (<code class="text-sm font-mono">settings.py</code>)
+                        </h3>
+                        <div class="code-block"><pre><code class="language-python"># 1. Enable the middleware
 DOWNLOADER_MIDDLEWARES = {
     "scrapy_stealth.middlewares.StealthDownloaderMiddleware": 950,
 }
 
-# 2. (Optional) Route ALL requests through stealth automatically
+# 2. (Optional) Route ALL requests through stealth automatically — no meta needed per request
 STEALTH_ENABLED = True
 STEALTH_DRIVER  = "turbo"   # "basic" (default), "turbo", or "browser"
 
 # 3. (Optional) Proxy list for automatic rotation
+#    Used when rotate_proxy=True (per-request) or when STEALTH_ENABLED=True with rotate_proxy
+#    Supported schemes: http, https, socks4, socks5
 STEALTH_PROXIES = [
     "http://proxy1:8080",
     "http://proxy2:8080",
     "http://user:pass@proxy3:8080",  # with authentication
     "socks5://proxy4:1080",
 ]</code></pre>
+                        </div>
                     </div>
-                </div>
 
-                <div id="setup-spider" class="scroll-mt-24 mb-6">
-                    <h3 class="text-lg font-semibold text-white mb-3">Option 2 — Isolated Spider Rules (<code
-                            class="text-xs text-indigo-400 font-mono bg-gray-900/60 px-1 py-0.5 rounded">custom_settings</code>)</h3>
-                    <div class="code-block relative mb-3">
-                            <pre><code class="language-python">class MySpider(scrapy.Spider):
+                    <div id="setup-spider" class="scroll-mt-24">
+                        <h3 class="text-lg font-semibold text-white mb-2">Option 2 — Per-spider (<code class="text-sm font-mono">custom_settings</code>)
+                        </h3>
+                        <p class="text-sm text-gray-400 mb-2">Configure the middleware and all stealth settings directly on the spider
+                            — no changes to settings.py required.</p>
+                        <div class="code-block"><pre><code class="language-python">class MySpider(scrapy.Spider):
     name = "example"
 
     custom_settings = {
@@ -430,12 +457,14 @@ STEALTH_PROXIES = [
             "socks5://proxy3:1080",
         ],
     }</code></pre>
+                        </div>
                     </div>
-                    <div class="p-3 rounded-lg border border-indigo-500/20 bg-indigo-500/5 text-indigo-300 text-xs flex gap-2">
-                        <i class="fa-solid fa-circle-info text-sm shrink-0 mt-0.5"></i>
-                        <span>Proxies are validated at startup — invalid format or unsupported scheme raises <code
-                                class="text-indigo-200 font-mono">ValueError</code> immediately.</span>
-                    </div>
+                </div>
+
+                <div class="mt-4 p-3 border border-amber-900/30 bg-amber-950/10 rounded-lg flex items-center gap-2 text-xs text-amber-400">
+                    <i class="fa-solid fa-circle-exclamation text-sm shrink-0"></i>
+                    <span><strong>Validation Enforcement:</strong> Proxies are validated at startup — invalid format or unsupported scheme raises <code
+                            class="text-indigo-200 font-mono">ValueError</code> immediately.</span>
                 </div>
             </section>
 
@@ -445,8 +474,7 @@ STEALTH_PROXIES = [
                     <div>
                         <h3 class="text-lg font-semibold text-white mb-2">Option A — Per-request <span
                                 class="text-sm font-normal text-gray-400">(stealth only on specific requests)</span></h3>
-                        <div class="code-block relative">
-<pre><code class="language-python">yield scrapy.Request(
+                        <div class="code-block"><pre><code class="language-python">yield scrapy.Request(
     url="https://example.com",
     meta={"stealth": {}},
 )</code></pre>
@@ -455,8 +483,9 @@ STEALTH_PROXIES = [
                     <div>
                         <h3 class="text-lg font-semibold text-white mb-2">Option B — Global mode <span
                                 class="text-sm font-normal text-gray-400">(stealth on every request automatically)</span></h3>
-                        <div class="code-block relative">
-<pre><code class="language-python"># No meta needed — all requests go through stealth
+                        <p class="text-sm text-gray-400 mb-2">Configure <code class="text-xs font-mono">STEALTH_ENABLED = True</code>
+                            and <code class="text-xs font-mono">STEALTH_DRIVER = "turbo"</code> in settings.</p>
+                        <div class="code-block"><pre><code class="language-python"># No meta needed — all requests go through stealth
 yield scrapy.Request(url="https://example.com")
 
 # Opt out for a specific request
@@ -468,48 +497,64 @@ yield scrapy.Request(url="https://api.internal/health", meta={"stealth": False})
 
             <section id="global-config" class="scroll-mt-24 mb-12">
                 <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">🔧 Global
-                    Configurations</h2>
-                <p class="text-gray-400 text-sm mb-4">Customise package-wide defaults via the shared <code
-                        class="text-indigo-400 font-mono bg-gray-900/60 px-1 py-0.5 rounded">config</code> instance. All settings must
-                    be applied <strong>at module level</strong>, before the spider class.</p>
+                    Configuration</h2>
+                <p class="text-sm text-gray-400 mb-3">Customise package-wide defaults via the shared <code class="text-xs font-mono">config</code>
+                    instance. All settings must be applied <strong>at module level</strong>, before the spider class — the engine
+                    client is created at middleware initialisation, so changes inside <code
+                            class="text-xs font-mono">start_requests</code> or <code class="text-xs font-mono">parse</code> will have
+                    no effect.</p>
 
-                <div class="code-block relative mb-6">
-                        <pre><code class="language-python"># myspider.py
+                <div class="code-block"><pre><code class="language-python"># myspider.py
 import scrapy
 from scrapy_stealth.config import config
 
-config.DEFAULT_ENGINE  = "stealth"      # "scrapy" (native) or "stealth"
-config.DEFAULT_PROFILE = "chrome_147"   # fallback browser identity
+config.DEFAULT_ENGINE  = "stealth"      # "scrapy" (native) or "stealth" (browser impersonation)
+config.DEFAULT_PROFILE = "chrome_147"   # browser profile when meta["stealth"]["profile"] is not set
 config.DEFAULT_TIMEOUT = 30             # stealth request timeout in seconds
-config.STEALTH_DRIVER  = "turbo"        # "basic", "turbo", or "browser"
-config.HTTP2           = True
-config.BLOCK_CODES    |= {407}          # expand blocked status codes
-config.BLOCK_KEYWORDS.append("banned")
-config.BROWSER_HEADLESS = True          # browser driver: headless mode
-config.BROWSER_SETTLE_S = 4.0           # browser driver: seconds to wait for JS
-config.BROWSER_EXECUTABLE_PATH = "/usr/bin/brave-browser"
+config.STEALTH_DRIVER  = "turbo"        # "basic" (default), "turbo", or "browser"
+config.HTTP2           = True           # False for servers that only support HTTP/1.1
+config.BLOCK_CODES    |= {407}          # extend blocked status codes (|= keeps defaults)
+config.BLOCK_KEYWORDS.append("banned")  # extend blocked body-text patterns
+config.BROWSER_HEADLESS = True          # browser driver: headless mode (False = visible window, more stealthy)
+config.BROWSER_SETTLE_S = 4.0          # browser driver: seconds to wait after navigation for JS to finish
+config.BROWSER_EXECUTABLE_PATH = "/usr/bin/brave-browser"  # custom browser binary (default: auto-detect Chrome)
+config.BROWSER_RESTART_AFTER_BANS = 5   # restart Chrome (fresh fingerprint) after 5 consecutive bans
 
 class MySpider(scrapy.Spider):
     name = "example"
     ...</code></pre>
                 </div>
 
-                <div class="overflow-x-auto rounded-xl border border-gray-800 bg-gray-900/20">
-                    <table class="w-full text-left border-collapse text-xs md:text-sm whitespace-nowrap">
+                <div class="code-block mt-3"><pre><code class="language-python"># ❌ wrong — too late, the engine client is already created
+class MySpider(scrapy.Spider):
+    def start_requests(self):
+        config.HTTP2 = False  # has no effect
+        ...</code></pre>
+                </div>
+
+                <p class="text-sm text-gray-400 mt-4 mb-2">You can also read any value programmatically:</p>
+                <div class="code-block"><pre><code class="language-python">config.get("DEFAULT_ENGINE")          # "scrapy"
+config.get("MISSING_KEY", "default")  # "default"</code></pre>
+                </div>
+
+                <div class="overflow-x-auto rounded-xl border border-gray-800 bg-gray-900/10 mt-6">
+                    <table class="w-full text-left border-collapse text-xs whitespace-normal">
                         <thead>
                         <tr class="bg-gray-900/50 border-b border-gray-800 text-gray-300 font-semibold">
                             <th class="p-3">Attribute</th>
-                            <th class="p-3">Type</th>
+                            <th class="p-3 text-indigo-400">Type</th>
                             <th class="p-3">Default</th>
                             <th class="p-3">Description</th>
                         </tr>
                         </thead>
-                        <tbody class="divide-y divide-gray-800/60 text-gray-400">
+                        <tbody class="divide-y divide-gray-800/40 text-gray-400">
                         <tr class="hover:bg-gray-800/5">
                             <td class="p-3 text-white font-mono">DEFAULT_ENGINE</td>
                             <td class="p-3 text-indigo-400 font-mono">str</td>
                             <td class="p-3 font-mono">"scrapy"</td>
-                            <td class="p-3">Engine used when <code>request.meta["stealth"]</code> key is absent</td>
+                            <td class="p-3">Engine used when <code class="text-xs font-mono">request.meta["stealth"]</code> key is
+                                absent
+                            </td>
                         </tr>
                         <tr class="hover:bg-gray-800/5">
                             <td class="p-3 text-white font-mono">DEFAULT_PROFILE</td>
@@ -527,13 +572,16 @@ class MySpider(scrapy.Spider):
                             <td class="p-3 text-white font-mono">STEALTH_DRIVER</td>
                             <td class="p-3 text-indigo-400 font-mono">str</td>
                             <td class="p-3 font-mono">"basic"</td>
-                            <td class="p-3">Default driver: "basic", "turbo", or "browser"</td>
+                            <td class="p-3">Default driver: <code class="text-xs font-mono">"basic"</code>, <code
+                                    class="text-xs font-mono">"turbo"</code>, or <code class="text-xs font-mono">"browser"</code>. Also
+                                readable from Scrapy settings as <code class="text-xs font-mono">STEALTH_DRIVER</code></td>
                         </tr>
                         <tr class="hover:bg-gray-800/5">
                             <td class="p-3 text-white font-mono">HTTP2</td>
                             <td class="p-3 text-indigo-400 font-mono">bool</td>
                             <td class="p-3 font-mono">True</td>
-                            <td class="p-3">HTTP/2 mode; overridable per-request</td>
+                            <td class="p-3">HTTP/2 mode; overridable per-request via <code class="text-xs font-mono">meta["stealth"]["http2"]</code>
+                            </td>
                         </tr>
                         <tr class="hover:bg-gray-800/5">
                             <td class="p-3 text-white font-mono">BLOCK_CODES</td>
@@ -544,32 +592,53 @@ class MySpider(scrapy.Spider):
                         <tr class="hover:bg-gray-800/5">
                             <td class="p-3 text-white font-mono">BLOCK_KEYWORDS</td>
                             <td class="p-3 text-indigo-400 font-mono">list[str]</td>
-                            <td class="p-3 font-mono">["captcha", …]</td>
+                            <td class="p-3 font-mono">["captcha", "access denied", …]</td>
                             <td class="p-3">Body-text patterns considered blocked</td>
                         </tr>
                         <tr class="hover:bg-gray-800/5">
                             <td class="p-3 text-white font-mono">BROWSER_HEADLESS</td>
                             <td class="p-3 text-indigo-400 font-mono">bool</td>
                             <td class="p-3 font-mono">True</td>
-                            <td class="p-3">Browser driver: headless mode (False = visible window)</td>
+                            <td class="p-3">Browser driver: headless mode (<code class="text-xs font-mono">False</code> = visible
+                                window, more stealthy)
+                            </td>
                         </tr>
                         <tr class="hover:bg-gray-800/5">
                             <td class="p-3 text-white font-mono">BROWSER_SETTLE_S</td>
                             <td class="p-3 text-indigo-400 font-mono">float</td>
                             <td class="p-3 font-mono">4.0</td>
-                            <td class="p-3">Browser driver: seconds to wait after navigation for JS</td>
+                            <td class="p-3">Browser driver: seconds to wait after navigation for JS to finish rendering</td>
                         </tr>
                         <tr class="hover:bg-gray-800/5">
                             <td class="p-3 text-white font-mono">BROWSER_NO_SANDBOX</td>
                             <td class="p-3 text-indigo-400 font-mono">bool | None</td>
                             <td class="p-3 font-mono">None</td>
-                            <td class="p-3">Disable Chrome sandbox (auto-detects root/Docker)</td>
+                            <td class="p-3">Browser driver: disable Chrome sandbox. <code class="text-xs font-mono">None</code> =
+                                auto-detect (enabled when running as root, e.g. Docker)
+                            </td>
                         </tr>
                         <tr class="hover:bg-gray-800/5">
                             <td class="p-3 text-white font-mono">BROWSER_EXECUTABLE_PATH</td>
                             <td class="p-3 text-indigo-400 font-mono">str | None</td>
                             <td class="p-3 font-mono">None</td>
-                            <td class="p-3">Path to custom browser binary (e.g. Brave)</td>
+                            <td class="p-3">Browser driver: path to the browser binary. <code class="text-xs font-mono">None</code> =
+                                auto-detect Chrome/Chromium. Set to use Brave or a custom install (e.g. <code
+                                        class="text-xs font-mono">"/usr/bin/brave-browser"</code>)
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">BROWSER_MAX_TABS</td>
+                            <td class="p-3 text-indigo-400 font-mono">int</td>
+                            <td class="p-3 font-mono">10</td>
+                            <td class="p-3">Browser driver: max concurrent Chrome tabs across in-flight requests</td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">BROWSER_RESTART_AFTER_BANS</td>
+                            <td class="p-3 text-indigo-400 font-mono">int</td>
+                            <td class="p-3 font-mono">5</td>
+                            <td class="p-3">Browser driver: restart Chrome (fresh fingerprint/cookies/CDP session) after this many <em>consecutive</em>
+                                banned/challenged responses. Any clean response resets the count
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -578,11 +647,15 @@ class MySpider(scrapy.Spider):
 
             <section id="per-request" class="scroll-mt-24 mb-12">
                 <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">⚙️ Per-Request
-                    Config</h2>
-                <p class="text-gray-400 text-sm mb-4">All options are passed via <code
-                        class="text-indigo-400 font-mono bg-gray-900/60 px-1 py-0.5 rounded">request.meta["stealth"]</code>.</p>
-                <div class="code-block relative mb-6">
-                        <pre><code class="language-python">yield scrapy.Request(
+                    Configuration</h2>
+                <p class="text-sm text-gray-400 mb-3">All options are passed via <code class="text-xs font-mono">request.meta["stealth"]</code>.
+                </p>
+                <p class="text-sm text-gray-400 mb-3">The presence of <code class="text-xs font-mono">meta["stealth"]</code> (a dict)
+                    activates the stealth engine. Omit the key to use the default Scrapy engine. When <code class="text-xs font-mono">STEALTH_ENABLED
+                        = True</code>, all requests are stealth by default — pass <code class="text-xs font-mono">meta={"stealth":
+                        False}</code> to opt out for a specific request.</p>
+
+                <div class="code-block"><pre><code class="language-python">yield scrapy.Request(
     url,
     meta={
         "stealth": {
@@ -598,25 +671,30 @@ class MySpider(scrapy.Spider):
 )</code></pre>
                 </div>
 
-                <div class="overflow-x-auto rounded-xl border border-gray-800 bg-gray-900/20">
-                    <table class="w-full text-left border-collapse text-xs md:text-sm whitespace-nowrap">
+                <div class="overflow-x-auto rounded-xl border border-gray-800 bg-gray-900/10 mt-6">
+                    <table class="w-full text-left border-collapse text-xs whitespace-normal">
                         <thead>
                         <tr class="bg-gray-900/50 border-b border-gray-800 text-gray-300 font-semibold">
                             <th class="p-3">Key</th>
-                            <th class="p-3">Type</th>
+                            <th class="p-3 text-indigo-400">Type</th>
                             <th class="p-3">Description</th>
                         </tr>
                         </thead>
-                        <tbody class="divide-y divide-gray-800/60 text-gray-400">
+                        <tbody class="divide-y divide-gray-800/40 text-gray-400">
                         <tr class="hover:bg-gray-800/5">
                             <td class="p-3 text-white font-mono">driver</td>
                             <td class="p-3 text-indigo-400 font-mono">str</td>
-                            <td class="p-3">"basic", "turbo", or "browser" — overrides config</td>
+                            <td class="p-3"><code class="text-xs font-mono">"basic"</code>, <code
+                                    class="text-xs font-mono">"turbo"</code>, or <code class="text-xs font-mono">"browser"</code> —
+                                overrides <code class="text-xs font-mono">config.STEALTH_DRIVER</code> per-request
+                            </td>
                         </tr>
                         <tr class="hover:bg-gray-800/5">
                             <td class="p-3 text-white font-mono">profile</td>
                             <td class="p-3 text-indigo-400 font-mono">str</td>
-                            <td class="p-3">Browser profile (e.g. "chrome_147", "safari_ios_18_1_1")</td>
+                            <td class="p-3">Browser profile (e.g. <code class="text-xs font-mono">"chrome_147"</code>, <code
+                                    class="text-xs font-mono">"safari_ios_18_1_1"</code>)
+                            </td>
                         </tr>
                         <tr class="hover:bg-gray-800/5">
                             <td class="p-3 text-white font-mono">proxy</td>
@@ -626,17 +704,20 @@ class MySpider(scrapy.Spider):
                         <tr class="hover:bg-gray-800/5">
                             <td class="p-3 text-white font-mono">stealth_timeout</td>
                             <td class="p-3 text-indigo-400 font-mono">int</td>
-                            <td class="p-3">Per-request timeout in seconds</td>
+                            <td class="p-3">Per-request timeout in seconds (overrides default 30s)</td>
                         </tr>
                         <tr class="hover:bg-gray-800/5">
                             <td class="p-3 text-white font-mono">http2</td>
                             <td class="p-3 text-indigo-400 font-mono">bool</td>
-                            <td class="p-3">True = HTTP/2, False = HTTP/1.1</td>
+                            <td class="p-3"><code class="text-xs font-mono">True</code> = HTTP/2, <code
+                                    class="text-xs font-mono">False</code> = HTTP/1.1 (overrides <code class="text-xs font-mono">config.HTTP2</code>
+                                for this request)
+                            </td>
                         </tr>
                         <tr class="hover:bg-gray-800/5">
                             <td class="p-3 text-white font-mono">rotate_proxy</td>
                             <td class="p-3 text-indigo-400 font-mono">bool</td>
-                            <td class="p-3">Auto-pick a proxy from STEALTH_PROXIES</td>
+                            <td class="p-3">Auto-pick a proxy from <code class="text-xs font-mono">STEALTH_PROXIES</code></td>
                         </tr>
                         <tr class="hover:bg-gray-800/5">
                             <td class="p-3 text-white font-mono">rotate_profile</td>
@@ -646,17 +727,24 @@ class MySpider(scrapy.Spider):
                         <tr class="hover:bg-gray-800/5">
                             <td class="p-3 text-white font-mono">headless</td>
                             <td class="p-3 text-indigo-400 font-mono">bool</td>
-                            <td class="p-3">Browser driver only: True = headless, False = visible</td>
+                            <td class="p-3">Browser driver only: <code class="text-xs font-mono">True</code> = headless, <code
+                                    class="text-xs font-mono">False</code> = visible window (more stealthy)
+                            </td>
                         </tr>
                         <tr class="hover:bg-gray-800/5">
                             <td class="p-3 text-white font-mono">settle</td>
                             <td class="p-3 text-indigo-400 font-mono">float</td>
-                            <td class="p-3">Browser driver only: seconds to wait for JS (default 4.0)</td>
+                            <td class="p-3">Browser driver only: seconds to wait for JS after navigation (default <code
+                                    class="text-xs font-mono">4.0</code>)
+                            </td>
                         </tr>
                         <tr class="hover:bg-gray-800/5">
                             <td class="p-3 text-white font-mono">snapshot</td>
                             <td class="p-3 text-indigo-400 font-mono">bool</td>
-                            <td class="p-3">Browser driver only: capture PNG to <code>response.meta["snapshot_content"]</code></td>
+                            <td class="p-3">Browser driver only: capture a PNG snapshot — result available as <code
+                                    class="text-xs font-mono">response.meta["snapshot_content"]</code> (<code
+                                    class="text-xs font-mono">bytes</code>)
+                            </td>
                         </tr>
                         </tbody>
                     </table>
@@ -664,55 +752,112 @@ class MySpider(scrapy.Spider):
             </section>
 
             <section id="browser-engine" class="scroll-mt-24 mb-12">
-                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">🖥️ Real Browser
-                    Integration Engine</h2>
-                <p class="text-gray-400 text-sm mb-4">Leverages Chrome DevTools connection logic directly to navigate dense,
-                    client-rendered JavaScript protections effortlessly without needing standard WebDriver setups.</p>
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">🖥️ Browser
+                    Engine</h2>
+                <p class="text-sm text-gray-400 mb-4">For sites protected by Cloudflare JS challenges or heavy JavaScript rendering,
+                    use the <code class="text-xs font-mono">browser</code> driver. It runs a real Chrome instance via the DevTools
+                    Protocol (no WebDriver), keeping one persistent browser and opening a new tab per request.</p>
 
-                <h3 class="text-md font-semibold text-gray-200 mb-2 mt-6">Per-request Implementation</h3>
-                <div class="code-block relative mb-4">
-                        <pre><code class="language-python">yield scrapy.Request(
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="text-white font-medium text-sm mb-1">Per-request (most common):</h4>
+                        <div class="code-block"><pre><code class="language-python">yield scrapy.Request(
     url,
     meta={
         "stealth": {
             "driver": "browser",
-            "headless": False,   # harder to detect fingerprint
-            "settle": 4.0,       # allow JS tasks to finalize
+            "headless": False,   # visible window — harder to detect (default: True)
+            "settle": 4.0,       # seconds to wait for JS after page load
         }
     },
 )</code></pre>
-                </div>
+                        </div>
+                    </div>
 
-                <h3 class="text-md font-semibold text-gray-200 mb-2 mt-6">Heavy Cloudflare / Custom Binaries & Docker</h3>
-                <div class="code-block relative mb-4">
-                        <pre><code class="language-python">from scrapy_stealth.config import config
+                    <div>
+                        <h4 class="text-white font-medium text-sm mb-1">Heavy Cloudflare sites — increase settle time:</h4>
+                        <div class="code-block">
+                            <pre><code
+                                    class="language-python">meta={"stealth": {"driver": "browser", "headless": False, "settle": 12}}</code></pre>
+                        </div>
+                    </div>
 
-# Increase settle time for heavy checks globally
+                    <div>
+                        <h4 class="text-white font-medium text-sm mb-1">Global default (all stealth requests use browser engine):</h4>
+                        <div class="code-block"><pre><code class="language-python">from scrapy_stealth.config import config
+
 config.STEALTH_DRIVER   = "browser"
-config.BROWSER_SETTLE_S = 12.0
+config.BROWSER_HEADLESS = False   # more stealthy
+config.BROWSER_SETTLE_S = 6.0    # longer wait for JS</code></pre>
+                        </div>
+                    </div>
 
-# Using a non-standard browser (e.g., Brave)
-config.BROWSER_EXECUTABLE_PATH = "/usr/bin/brave-browser"
+                    <div>
+                        <h4 class="text-white font-medium text-sm mb-1">Custom browser binary (Brave, Chromium, or a non-default Chrome
+                            install):</h4>
+                        <div class="code-block"><pre><code class="language-python">from scrapy_stealth.config import config
 
-# Running in Docker as root (force no-sandbox)
-config.BROWSER_NO_SANDBOX = True</code></pre>
+config.BROWSER_EXECUTABLE_PATH = "/usr/bin/brave-browser"  # Linux
+# config.BROWSER_EXECUTABLE_PATH = r"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"  # Windows</code></pre>
+                        </div>
+                        <p class="text-sm text-gray-400 mt-1">Or via <code class="text-xs font-mono">settings.py</code> / <code
+                                class="text-xs font-mono">custom_settings</code>:</p>
+                        <div class="code-block">
+                            <pre><code class="language-python">BROWSER_EXECUTABLE_PATH = "/usr/bin/brave-browser"</code></pre>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">💡 When <code class="text-xs font-mono">BROWSER_EXECUTABLE_PATH</code> is
+                            <code class="text-xs font-mono">None</code> (the default), <code
+                                    class="text-xs font-mono">scrapy-stealth</code> auto-detects Google Chrome or Chromium from
+                            standard system paths. Set it explicitly when using Brave or a non-standard Chrome installation — a clear
+                            error is raised if the path does not exist.</p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-medium text-sm mb-1">Intelligent restart:</h4>
+                        <p class="text-sm text-gray-400 mb-2">The browser engine restarts Chrome intelligently rather than on a fixed
+                            schedule — it only restarts (getting a fresh fingerprint, cookies, and CDP session) after <code
+                                    class="text-xs font-mono">BROWSER_RESTART_AFTER_BANS</code> consecutive banned/challenged
+                            responses, as classified by the Anti-Bot Detection module. A single clean response resets the streak, so a
+                            browser that's sailing through cleanly is left running indefinitely — it's never restarted just because it
+                            has served a lot of requests.</p>
+                        <div class="code-block"><pre><code class="language-python">from scrapy_stealth.config import config
+
+config.BROWSER_RESTART_AFTER_BANS = 5  # restart after 5 consecutive bans (default)</code></pre>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4 class="text-white font-medium text-sm mb-1">Docker (running as root):</h4>
+                        <p class="text-sm text-gray-400 mb-2">Chrome requires <code class="text-xs font-mono">--no-sandbox</code> when
+                            the process runs as root. <code class="text-xs font-mono">scrapy-stealth</code> detects this automatically,
+                            but you can also set it explicitly in <code class="text-xs font-mono">settings.py</code>:</p>
+                        <div class="code-block"><pre><code class="language-python">BROWSER_NO_SANDBOX = True           # force no-sandbox (Docker, any root environment)
+BROWSER_EXECUTABLE_PATH = "/usr/bin/chromium"  # use Chromium instead of Chrome in Docker</code></pre>
+                        </div>
+                        <p class="text-sm text-gray-400 mt-2">Or via <code class="text-xs font-mono">config</code>:</p>
+                        <div class="code-block"><pre><code class="language-python">config.BROWSER_NO_SANDBOX = True
+config.BROWSER_EXECUTABLE_PATH = "/usr/bin/chromium"</code></pre>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="p-3 rounded-lg border border-indigo-500/20 bg-indigo-500/5 text-indigo-300 text-xs flex gap-2">
-                    <i class="fa-solid fa-circle-info text-sm shrink-0 mt-0.5"></i>
-                    <span><strong>Performance Notice</strong>: The browser engine is slower than basic/turbo (~5-15s execution profiles vs <2s). Isolate complex, protected URLs into this engine while routing base lookups via turbo.</span>
+                <div class="mt-4 p-3 border border-indigo-800/30 bg-indigo-950/10 rounded-lg text-xs text-indigo-300">
+                    <strong>⚠️ Performance note:</strong> the browser engine is slower than <code
+                        class="text-xs font-mono">basic</code>/<code class="text-xs font-mono">turbo</code> (~5-15s per page vs &lt;2s).
+                    Use it selectively — route only JS-protected URLs to <code class="text-xs font-mono">"browser"</code> and keep
+                    everything else on <code class="text-xs font-mono">"turbo"</code>.
                 </div>
             </section>
 
             <section id="screenshots" class="scroll-mt-24 mb-12">
                 <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">📸 Screenshots</h2>
-                <p class="text-gray-400 text-sm mb-4">Capture a PNG screenshot of any page rendered by the <code
-                        class="text-indigo-400 font-mono bg-gray-900/60 px-1 py-0.5 rounded">browser</code> driver and save it to disk.
-                </p>
+                <p class="text-sm text-gray-400 mb-3">Capture a PNG screenshot of any page rendered by the <code
+                        class="text-xs font-mono">browser</code> driver and save it to disk.</p>
 
-                <h3 class="text-md font-semibold text-gray-200 mb-2">Enable on the request</h3>
-                <div class="code-block relative mb-6">
-                        <pre><code class="language-python">yield scrapy.Request(
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="text-white font-medium text-sm mb-1">1. Enable on the request</h3>
+                        <div class="code-block"><pre><code class="language-python">yield scrapy.Request(
     url,
     meta={
         "stealth": {
@@ -722,11 +867,15 @@ config.BROWSER_NO_SANDBOX = True</code></pre>
     },
     callback=self.parse,
 )</code></pre>
-                </div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">The raw PNG bytes are available at <code class="text-xs font-mono">response.meta["snapshot_content"]</code>
+                            inside your callback.</p>
+                    </div>
 
-                <h3 class="text-md font-semibold text-gray-200 mb-2">Auto-save with snapshot decorator</h3>
-                <div class="code-block relative mb-6">
-                        <pre><code class="language-python">from scrapy_stealth.decorators import snapshot
+                    <div>
+                        <h3 class="text-white font-medium text-sm mb-1">2. Auto-save with <code
+                                class="text-xs font-mono">snapshot</code> decorator</h3>
+                        <div class="code-block"><pre><code class="language-python">from scrapy_stealth.decorators import snapshot
 
 class MySpider(scrapy.Spider):
 
@@ -738,14 +887,37 @@ class MySpider(scrapy.Spider):
 
     @snapshot(path=lambda r: r.url.split("/")[-1] + ".png")
     def parse(self, response): ...</code></pre>
+                        </div>
+                        <p class="text-xs text-amber-500 mt-1">⚠️ <strong>Note:</strong> Requires <code class="text-xs font-mono">driver="browser"</code>
+                            and <code class="text-xs font-mono">snapshot=True</code> in the request meta. Logs an error if no snapshot
+                            data is found in the response.</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-white font-medium text-sm mb-1">3. Custom handling (without the built-in helper)</h3>
+                        <p class="text-sm text-gray-400 mb-2">The screenshot is just <code class="text-xs font-mono">bytes</code> in
+                            <code class="text-xs font-mono">response.meta["snapshot_content"]</code> — do anything you like with it:
+                        </p>
+                        <div class="code-block"><pre><code class="language-python">def parse(self, response):
+    shot: bytes | None = response.meta.get("snapshot_content")
+    if shot is None:
+        return  # screenshot was not requested or capture failed
+
+    # Save manually
+    with open("page.png", "wb") as f:
+        f.write(shot)
+
+    # Pass to a pipeline via item
+    yield {"url": response.url, "screenshot": shot}</code></pre>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <section id="rotation" class="scroll-mt-24 mb-12">
                 <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">🔁 Automatic
                     Rotation</h2>
-                <div class="code-block relative">
-                        <pre><code class="language-python">yield scrapy.Request(
+                <div class="code-block"><pre><code class="language-python">yield scrapy.Request(
     url,
     meta={
         "stealth": {
@@ -761,11 +933,12 @@ class MySpider(scrapy.Spider):
                 <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">🧩 Strategies</h2>
 
                 <div id="proxy-rotation" class="scroll-mt-24 mb-6">
-                    <h3 class="text-md font-semibold text-gray-200 mb-2">Proxy Rotation Handler</h3>
-                    <div class="code-block relative"><pre><code class="language-python">from scrapy_stealth.strategies.proxy import ProxyRotator
+                    <h3 class="text-md font-semibold text-gray-200 mb-2">Proxy Rotation</h3>
+                    <div class="code-block"><pre><code class="language-python">from scrapy_stealth.strategies.proxy import ProxyRotator
+
 proxy_rotator = ProxyRotator([
     "http://proxy1:8080",
-    "http://proxy2:8080"
+    "http://proxy2:8080",
 ])
 
 yield scrapy.Request(
@@ -780,8 +953,9 @@ yield scrapy.Request(
                 </div>
 
                 <div id="fingerprint-rotation" class="scroll-mt-24 mb-6">
-                    <h3 class="text-md font-semibold text-gray-200 mb-2">Fingerprint Engine Rotation</h3>
-                    <div class="code-block relative"><pre><code class="language-python">from scrapy_stealth.strategies.fingerprint import ProfileRotator
+                    <h3 class="text-md font-semibold text-gray-200 mb-2">Fingerprint Rotation</h3>
+                    <div class="code-block"><pre><code class="language-python">from scrapy_stealth.strategies.fingerprint import ProfileRotator
+
 fp = ProfileRotator()
 
 yield scrapy.Request(
@@ -795,10 +969,12 @@ yield scrapy.Request(
                     </div>
                 </div>
 
-                <div id="intelligent-retry" class="scroll-mt-24">
-                    <h3 class="text-md font-semibold text-gray-200 mb-2">Intelligent Retry Controller</h3>
-                    <div class="code-block relative"><pre><code class="language-python">from scrapy_stealth.strategies.retry import RetryHandler
+                <div id="intelligent-retry" class="scroll-mt-24 mb-6">
+                    <h3 class="text-md font-semibold text-gray-200 mb-2">Intelligent Retry</h3>
+                    <div class="code-block"><pre><code class="language-python">from scrapy_stealth.strategies.retry import RetryHandler
+
 retry = RetryHandler()
+
 
 def parse(self, response):
     if retry.should_retry(response):
@@ -811,20 +987,19 @@ def parse(self, response):
             <section id="antibot" class="scroll-mt-24 mb-12">
                 <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">🛡️ Anti-Bot
                     Detection</h2>
-                <div class="code-block relative">
-                        <pre><code class="language-python">from scrapy_stealth.detectors.antibot import AntiBotDetector
+                <div class="code-block"><pre><code class="language-python">from scrapy_stealth.detectors.antibot import AntiBotDetector
+
 detector = AntiBotDetector()
 
 if detector.is_blocked(response):
-    print("Block state confirmed.")</code></pre>
+    print("Blocked!")</code></pre>
                 </div>
             </section>
 
             <section id="example" class="scroll-mt-24 mb-12">
-                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">📊 Full Practical
-                    Implementation</h2>
-                <div class="code-block relative">
-                        <pre><code class="language-python">import scrapy
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">📊 Example</h2>
+                <div class="code-block"><pre><code class="language-python">import scrapy
+
 
 class ExampleSpider(scrapy.Spider):
     name = "example"
@@ -835,7 +1010,7 @@ class ExampleSpider(scrapy.Spider):
             meta={
                 "stealth": {
                     "rotate_proxy": True,
-                    "rotate_profile": True
+                    "rotate_profile": True,
                 }
             },
         )
@@ -851,24 +1026,17 @@ class ExampleSpider(scrapy.Spider):
             <section id="performance" class="scroll-mt-24 mb-12">
                 <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">⚡ Performance
                     Insight</h2>
-                <p class="text-gray-400 text-sm mb-4">Using stealth selectively offers:</p>
-                <ul class="space-y-2 text-sm text-gray-400">
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-bolt text-emerald-400"></i> Faster crawling (Scrapy for
-                        simple pages).
-                    </li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-dollar-sign text-emerald-400"></i> Lower proxy cost.</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-shield text-indigo-400"></i> Better success rate on
-                        protected pages.
-                    </li>
+                <p class="text-sm text-gray-400 mb-3">Using stealth selectively offers key structural improvements:</p>
+                <ul class="list-disc pl-6 text-sm text-gray-400 space-y-1">
+                    <li>⚡ Faster crawling (Scrapy for simple pages)</li>
+                    <li>💰 Lower proxy cost</li>
+                    <li>🛡️ Better success rate on protected pages</li>
                 </ul>
             </section>
 
-            <section id="distribution" class="scroll-mt-24 mb-12">
-                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">📦 Distribution &
-                    Ecosystem</h2>
-                <p class="text-gray-400 text-sm mb-6">Track distributions, source revisions, and live download tallies synced directly
-                    across public distribution indexes.</p>
-
+            <section id="releases-tracking" class="scroll-mt-24 mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">📜 Dynamic Release
+                    Tracker</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
                     <div class="p-4 rounded-xl border border-gray-800 bg-gray-900/30 flex items-center gap-4">
                         <div class="p-3 rounded-lg bg-indigo-500/10 text-indigo-400"><i class="fa-regular fa-star text-lg"></i></div>
@@ -885,118 +1053,52 @@ class ExampleSpider(scrapy.Spider):
                         </div>
                     </div>
                     <div class="p-4 rounded-xl border border-gray-800 bg-gray-900/30 flex items-center gap-4">
-                        <div class="p-3 rounded-lg bg-emerald-500/10 text-emerald-400"><i class="fa-solid fa-tag text-lg"></i></div>
+                        <div class="p-3 rounded-lg bg-emerald-500/10 text-emerald-400"><i class="fa-solid fa-code-branch text-lg"></i>
+                        </div>
                         <div>
-                            <div class="text-lg font-bold text-white tracking-tight text-emerald-400 font-mono version-lbl">v…</div>
-                            <div class="text-xs text-gray-500 mt-0.5">PyPI Release</div>
+                            <div class="text-lg font-bold text-white tracking-tight"><span class="forks-lbl">...</span></div>
+                            <div class="text-xs text-gray-500 mt-0.5">Forks Tracked</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                    <div class="p-5 rounded-xl border border-gray-800 bg-gray-900/20 hover:border-indigo-500/40 transition-all flex flex-col justify-between">
-                        <div>
-                            <h4 class="text-white font-semibold flex items-center gap-2 mb-2"><i
-                                    class="fa-brands fa-python text-amber-500"></i> PyPI Distribution Channels</h4>
-                            <p class="text-xs text-gray-400 leading-relaxed mb-4">Serves compiled target wheels and project
-                                dependencies globally across pipeline infrastructures.</p>
-                            <div class="flex flex-wrap gap-1.5 mb-4">
-                                <img src="https://img.shields.io/pypi/v/scrapy-stealth?color=7c4dff&label=version" alt="PyPI version">
-                                <img src="https://img.shields.io/pypi/pyversions/scrapy-stealth?color=00d4aa" alt="Python versions">
-                            </div>
-                        </div>
-                        <a href="https://pypi.org/project/scrapy-stealth/" target="_blank"
-                           class="w-full text-center py-2 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg transition-colors">View
-                            PyPI Core Project <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></a>
-                    </div>
-                    <div class="p-5 rounded-xl border border-gray-800 bg-gray-900/20 hover:border-indigo-500/40 transition-all flex flex-col justify-between">
-                        <div>
-                            <h4 class="text-white font-semibold flex items-center gap-2 mb-2"><i class="fa-brands fa-github"></i>
-                                GitHub Release Tags</h4>
-                            <p class="text-xs text-gray-400 leading-relaxed mb-4">Provides immediate access to full development source
-                                code assets, tracking histories, and contribution logs.</p>
-                            <div class="flex flex-wrap gap-1.5 mb-4">
-                                <img src="https://img.shields.io/github/v/release/fawadss1/scrapy-stealth?color=7c4dff&label=latest"
-                                     alt="latest release">
-                                <img src="https://img.shields.io/github/license/fawadss1/scrapy-stealth?color=00d4aa" alt="license">
-                            </div>
-                        </div>
-                        <a href="https://github.com/fawadss1/scrapy-stealth/releases" target="_blank"
-                           class="w-full text-center py-2 text-xs font-semibold text-white border border-gray-700 hover:bg-gray-800/50 rounded-lg transition-colors">Explore
-                            GitHub Repository <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i></a>
-                    </div>
-                </div>
-
-                <div class="border border-gray-800 rounded-xl overflow-hidden bg-gray-900/10">
-                    <div class="flex border-b border-gray-800 bg-gray-900/40 px-2">
-                        <button onclick="switchTab(event, 'p-pip')"
-                                class="tab-btn px-4 py-2.5 text-xs font-medium text-white border-b-2 border-indigo-500 transition-all">
-                            pip
-                        </button>
-                        <button onclick="switchTab(event, 'p-uv')"
-                                class="tab-btn px-4 py-2.5 text-xs font-medium text-gray-500 hover:text-gray-300 transition-all">uv
-                        </button>
-                        <button onclick="switchTab(event, 'p-poetry')"
-                                class="tab-btn px-4 py-2.5 text-xs font-medium text-gray-500 hover:text-gray-300 transition-all">poetry
-                        </button>
-                        <button onclick="switchTab(event, 'p-pipx')"
-                                class="tab-btn px-4 py-2.5 text-xs font-medium text-gray-500 hover:text-gray-300 transition-all">pipx
-                        </button>
-                    </div>
-                    <div class="p-0">
-                        <div id="p-pip" class="tab-pane block code-block relative">
-                            <pre><code class="language-bash">pip install scrapy-stealth</code></pre>
-                        </div>
-                        <div id="p-uv" class="tab-pane hidden code-block relative">
-                            <pre><code class="language-bash">uv add scrapy-stealth</code></pre>
-                        </div>
-                        <div id="p-poetry" class="tab-pane hidden code-block relative">
-                            <pre><code class="language-bash">poetry add scrapy-stealth</code></pre>
-                        </div>
-                        <div id="p-pipx" class="tab-pane hidden code-block relative">
-                            <pre><code class="language-bash">pipx install scrapy-stealth</code></pre>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="changelog" class="scroll-mt-24 mb-12">
-                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">📜 Release History
-                    & Changelogs</h2>
-                <p class="text-sm text-gray-400 mb-4">Currently tracking stable release: <strong
-                        class="text-indigo-400 font-mono version-lbl">v…</strong>.</p>
-
-                <div class="overflow-x-auto rounded-xl border border-gray-800 bg-gray-900/20 mb-4">
-                    <table class="w-full text-left border-collapse text-sm" id="releases-table">
+                <h3 class="text-md font-semibold text-white mb-3">Recent Artifact Versions (GitHub API)</h3>
+                <div class="overflow-x-auto rounded-xl border border-gray-800 bg-gray-900/20">
+                    <table id="releases-table" class="w-full text-left border-collapse text-sm">
                         <thead>
-                        <tr class="bg-gray-900/50 border-b border-gray-800 text-gray-300 font-semibold">
-                            <th class="p-3">Version Tag</th>
-                            <th class="p-3">Deployment Date</th>
-                            <th class="p-3">Artifact Links</th>
+                        <tr class="bg-gray-900/40 border-b border-gray-800 text-gray-400 font-medium text-xs uppercase tracking-wider">
+                            <th class="p-3">Release Tag</th>
+                            <th class="p-3">Published Date</th>
+                            <th class="p-3">Documentation</th>
                         </tr>
                         </thead>
-                        <tbody class="divide-y divide-gray-800/60 text-gray-400 font-mono">
+                        <tbody class="divide-y divide-gray-800/40 text-gray-300">
                         <tr>
-                            <td colspan="3" class="p-4 text-center text-gray-500 text-xs italic">Awaiting API payload synchronization
-                                loops...
-                            </td>
+                            <td colspan="3" class="p-4 text-center text-gray-500 text-xs italic">Loading telemetry details...</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="text-xs text-gray-500 space-x-2">
-                    <a href="https://github.com/fawadss1/scrapy-stealth/blob/master/CHANGELOG.md" target="_blank"
-                       class="text-indigo-400 hover:underline">CHANGELOG.md</a>
-                    <span>•</span>
-                    <a href="https://github.com/fawadss1/scrapy-stealth/blob/master/CONTRIBUTING.md" target="_blank"
-                       class="text-indigo-400 hover:underline">CONTRIBUTING.md</a>
-                </div>
             </section>
 
-            <section id="license" class="scroll-mt-24 mb-12">
+            <section id="distribution" class="scroll-mt-24 mb-12">
+                <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">🤝 Contributing &
+                    Project Links</h2>
+                <p class="text-sm text-gray-400 mb-4">
+                    See <a href="https://github.com/fawadss1/scrapy-stealth/blob/master/CHANGELOG.md" target="_blank"
+                           class="text-indigo-400 hover:underline">CHANGELOG.md</a> for a full history of changes, browse <a
+                        href="https://github.com/fawadss1/scrapy-stealth/releases" target="_blank"
+                        class="text-indigo-400 hover:underline">GitHub Releases</a>, or review guidelines in <a
+                        href="https://github.com/fawadss1/scrapy-stealth/blob/master/CONTRIBUTING.md" target="_blank"
+                        class="text-indigo-400 hover:underline">CONTRIBUTING.md</a> to contribute.
+                </p>
+            </section>
+
+            <section id="license" class="scroll-mt-24">
                 <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">📄 License</h2>
-                <p class="text-sm text-gray-400">Distributed completely under the terms of the open-source <strong class="text-white">MIT
-                    License</strong> schema structural controls.</p>
+                <p class="text-sm text-gray-400">Distributed completely under the terms of the open-source <a
+                        href="https://github.com/fawadss1/scrapy-stealth/blob/master/LICENSE" target="_blank"
+                        class="text-white hover:underline font-semibold">MIT License</a> schema structural controls.</p>
             </section>
 
             <footer class="mt-16 pt-6 border-t border-gray-800/80 text-xs text-gray-500 flex flex-col sm:flex-row justify-between gap-2">
@@ -1015,7 +1117,7 @@ class ExampleSpider(scrapy.Spider):
         <button onclick="document.getElementById('sidebar-drawer').classList.add('-translate-x-full')"
                 class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
     </div>
-    <div id="mobile-nav-target" class="space-y-1"></div>
+    <div id="mobile-nav-target"></div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>

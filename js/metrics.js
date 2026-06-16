@@ -102,12 +102,15 @@ apiFetch(
                 ? `<span style="display:inline-flex;align-items:center;padding:1px 6px;border-radius:9999px;font-size:10px;font-weight:600;background:#e3b34122;border:1px solid #f0883e55;color:#e3b341;">pre-release</span>`
                 : '';
 
+            const pureVersion = rel.tag_name.replace(/^v/, '');
+            const pypiVersionUrl = `https://pypi.org/project/scrapy-stealth/${pureVersion}/`;
+
             const tr = document.createElement('tr');
             tr.className = "hover:bg-gray-800/10 transition-colors";
             tr.innerHTML = `
                 <td class="p-3">
                     <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-                        <a href="${rel.html_url}" target="_blank" style="display:inline-flex;align-items:center;gap:5px;padding:3px 10px 3px 8px;border-radius:6px;font-size:12px;font-weight:600;background:#21262d;border:1px solid #30363d;color:#e6edf3;text-decoration:none;transition:border-color .15s;" onmouseover="this.style.borderColor='#8b949e'" onmouseout="this.style.borderColor='#30363d'">
+                        <a href="${pypiVersionUrl}" target="_blank" style="display:inline-flex;align-items:center;gap:5px;padding:3px 10px 3px 8px;border-radius:6px;font-size:12px;font-weight:600;background:#21262d;border:1px solid #30363d;color:#e6edf3;text-decoration:none;transition:border-color .15s;" onmouseover="this.style.borderColor='#8b949e'" onmouseout="this.style.borderColor='#30363d'">
                             <svg style="width:13px;height:13px;fill:#8b949e;" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 2.06 1.56 1.5 2.25 1.5h5.025a.75.75 0 0 1 .53.22l6.25 6.25a.75.75 0 0 1 0 1.06l-5.025 5.025a.75.75 0 0 1-1.06 0L1.22 8.305A.75.75 0 0 1 1 7.775zm1.5-.31 5.74 5.74 4.495-4.495L7 3.5H2.5v3.965zM4 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg>
                             ${rel.tag_name}
                         </a>
