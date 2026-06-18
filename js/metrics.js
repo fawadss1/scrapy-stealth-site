@@ -99,7 +99,7 @@ apiFetch(
                 : '';
 
             const preTag = isPre && !isLatest
-                ? `<span style="display:inline-flex;align-items:center;padding:1px 6px;border-radius:9999px;font-size:10px;font-weight:600;background:#e3b34122;border:1px solid #f0883e55;color:#e3b341;">pre-release</span>`
+                ? `<span style="display:inline-flex;align-items:center;padding:1px 6px;border-radius:9999px;font-size:10px;font-weight:600;background:#e3b34122;border:1px solid #f0883e55;color:#e3b341;">Pre-release</span>`
                 : '';
 
             const pureVersion = rel.tag_name.replace(/^v/, '');
@@ -142,7 +142,7 @@ apiFetch(
     }
 );
 
-const targetSections = document.querySelectorAll('section, div[id="setup-global"], div[id="setup-spider"], div[id="proxy-rotation"], div[id="fingerprint-rotation"], div[id="intelligent-retry"]');
+const targetSections = document.querySelectorAll('section, div[id="setup-global"], div[id="setup-spider"], div[id="proxy-rotation"], div[id="fingerprint-rotation"], div[id="intelligent-retry"], div[id="browser-basic-usage"], div[id="browser-custom-binary"], div[id="browser-restart"], div[id="browser-docker"], div[id="browser-static-assets"], div[id="browser-proxy-bypass"]');
 const sidebarLinks = document.querySelectorAll('.nav-link');
 
 const observerOptions = {

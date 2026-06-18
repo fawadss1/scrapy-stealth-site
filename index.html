@@ -104,8 +104,24 @@
                    href="#global-config">Global Configuration</a>
                 <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
                    href="#per-request">Per-Request Options</a>
-                <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
-                   href="#browser-engine">Browser Engine Details</a>
+                <div class="pt-1 pb-1">
+                    <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
+                       href="#browser-engine">Browser Engine</a>
+                    <div class="mt-1 ml-4 pl-3 border-l-2 border-gray-800/60 space-y-0.5">
+                        <a class="nav-link relative flex items-center px-3 py-1.5 text-xs font-medium rounded-md text-gray-500 hover:text-gray-300 hover:bg-gray-800/30 transition-all [&.active]:text-indigo-400"
+                           href="#browser-basic-usage">Basic Usage</a>
+                        <a class="nav-link relative flex items-center px-3 py-1.5 text-xs font-medium rounded-md text-gray-500 hover:text-gray-300 hover:bg-gray-800/30 transition-all [&.active]:text-indigo-400"
+                           href="#browser-custom-binary">Custom Binary</a>
+                        <a class="nav-link relative flex items-center px-3 py-1.5 text-xs font-medium rounded-md text-gray-500 hover:text-gray-300 hover:bg-gray-800/30 transition-all [&.active]:text-indigo-400"
+                           href="#browser-restart">Intelligent Restart</a>
+                        <a class="nav-link relative flex items-center px-3 py-1.5 text-xs font-medium rounded-md text-gray-500 hover:text-gray-300 hover:bg-gray-800/30 transition-all [&.active]:text-indigo-400"
+                           href="#browser-docker">Docker / Root</a>
+                        <a class="nav-link relative flex items-center px-3 py-1.5 text-xs font-medium rounded-md text-gray-500 hover:text-gray-300 hover:bg-gray-800/30 transition-all [&.active]:text-indigo-400"
+                           href="#browser-static-assets">Static Asset Blocking</a>
+                        <a class="nav-link relative flex items-center px-3 py-1.5 text-xs font-medium rounded-md text-gray-500 hover:text-gray-300 hover:bg-gray-800/30 transition-all [&.active]:text-indigo-400"
+                           href="#browser-proxy-bypass">Proxy Bypass List</a>
+                    </div>
+                </div>
                 <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
                    href="#screenshots">Page Screenshots</a>
                 <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
@@ -132,6 +148,10 @@
                    href="#performance">Performance Optimization</a>
                 <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
                    href="#releases-tracking">Dynamic Trackers</a>
+                <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
+                   href="#distribution">Contributing & Project Links</a>
+                <a class="nav-link relative flex items-center px-3 py-2 text-sm font-medium rounded-lg text-gray-400 hover:text-white hover:bg-gray-800/50 transition-all [&.active]:text-white [&.active]:bg-indigo-600/15"
+                   href="#license">License</a>
             </nav>
         </aside>
 
@@ -395,6 +415,14 @@
                         consecutive bans, not a fixed request count
                     </li>
                     <li class="p-3 rounded-lg border border-gray-800 bg-gray-900/10 flex items-center gap-2.5 text-gray-300"><i
+                            class="fa-solid fa-ban text-indigo-400 w-5"></i>🚫 Static asset blocking — skip images, fonts, CSS, and
+                        media for faster, lighter browser fetches
+                    </li>
+                    <li class="p-3 rounded-lg border border-gray-800 bg-gray-900/10 flex items-center gap-2.5 text-gray-300"><i
+                            class="fa-solid fa-bullseye text-indigo-400 w-5"></i>🎯 Proxy bypass list — send chosen domains straight to
+                        the origin instead of through the proxy (<code class="text-xs font-mono">--proxy-bypass-list</code>)
+                    </li>
+                    <li class="p-3 rounded-lg border border-gray-800 bg-gray-900/10 flex items-center gap-2.5 text-gray-300"><i
                             class="fa-solid fa-camera text-indigo-400 w-5"></i>📸 Built-in snapshot decorator (<code
                             class="text-xs font-mono">scrapy_stealth.decorators.snapshot</code>)
                     </li>
@@ -519,6 +547,8 @@ config.BROWSER_HEADLESS = True          # browser driver: headless mode (False =
 config.BROWSER_SETTLE_S = 4.0          # browser driver: seconds to wait after navigation for JS to finish
 config.BROWSER_EXECUTABLE_PATH = "/usr/bin/brave-browser"  # custom browser binary (default: auto-detect Chrome)
 config.BROWSER_RESTART_AFTER_BANS = 5   # restart Chrome (fresh fingerprint) after 5 consecutive bans
+config.BROWSER_STATIC_ASSETS_BLOCK = True  # block images/fonts/CSS/media (skipped when snapshot=True)
+config.BROWSER_PROXY_BYPASS_LIST = ["example.com", "*.internal"]  # these bypass the proxy
 
 class MySpider(scrapy.Spider):
     name = "example"
@@ -640,6 +670,25 @@ config.get("MISSING_KEY", "default")  # "default"</code></pre>
                                 banned/challenged responses. Any clean response resets the count
                             </td>
                         </tr>
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">BROWSER_STATIC_ASSETS_BLOCK</td>
+                            <td class="p-3 text-indigo-400 font-mono">bool</td>
+                            <td class="p-3 font-mono">False</td>
+                            <td class="p-3">Browser driver: block images, fonts, CSS, and media via CDP. Overridable per-request via
+                                <code class="text-xs font-mono">meta["stealth"]["static_assets_block"]</code>; always off when <code
+                                        class="text-xs font-mono">snapshot=True</code></td>
+                        </tr>
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">BROWSER_PROXY_BYPASS_LIST</td>
+                            <td class="p-3 text-indigo-400 font-mono">list[str]</td>
+                            <td class="p-3 font-mono">[]</td>
+                            <td class="p-3">Browser driver: domains/patterns that bypass the proxy and connect to the origin directly,
+                                via Chrome's <code class="text-xs font-mono">--proxy-bypass-list</code>. Supports wildcards (<code
+                                        class="text-xs font-mono">*.example.com</code>), IP/CIDR, ports, and <code
+                                        class="text-xs font-mono">&lt;local&gt;</code>. Only applies when a proxy is in use; set at
+                                browser launch (config/settings, not per-request)
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
@@ -746,18 +795,38 @@ config.get("MISSING_KEY", "default")  # "default"</code></pre>
                                     class="text-xs font-mono">bytes</code>)
                             </td>
                         </tr>
+                        <tr class="hover:bg-gray-800/5">
+                            <td class="p-3 text-white font-mono">static_assets_block</td>
+                            <td class="p-3 text-indigo-400 font-mono">bool</td>
+                            <td class="p-3">Browser driver only: block images, fonts, CSS, and media for this request (overrides <code
+                                    class="text-xs font-mono">config.BROWSER_STATIC_ASSETS_BLOCK</code>). Ignored — always unblocked —
+                                when <code class="text-xs font-mono">snapshot</code> is <code class="text-xs font-mono">True</code>
+                            </td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
             </section>
 
-            <section id="browser-engine" class="scroll-mt-24 mb-12">
+            <section id="browser-engine" class="scroll-mt-24 mb-2">
                 <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">🖥️ Browser
                     Engine</h2>
-                <p class="text-sm text-gray-400 mb-4">For sites protected by Cloudflare JS challenges or heavy JavaScript rendering,
+                <p class="text-sm text-gray-400 mb-2">For sites protected by Cloudflare JS challenges or heavy JavaScript rendering,
                     use the <code class="text-xs font-mono">browser</code> driver. It runs a real Chrome instance via the DevTools
                     Protocol (no WebDriver), keeping one persistent browser and opening a new tab per request.</p>
+                <div class="p-3 border border-indigo-800/30 bg-indigo-950/10 rounded-lg text-xs text-indigo-300 mb-6">
+                    <strong>⚠️ Performance note:</strong> the browser engine is slower than <code
+                        class="text-xs font-mono">basic</code>/<code class="text-xs font-mono">turbo</code> (~5-15s per page vs &lt;2s).
+                    Use it selectively — route only JS-protected URLs to <code class="text-xs font-mono">"browser"</code> and keep
+                    everything else on <code class="text-xs font-mono">"turbo"</code>.
+                </div>
+            </section>
 
+            <!-- Browser Engine: Basic Usage -->
+            <div id="browser-basic-usage" class="scroll-mt-24 mb-8 ml-0">
+                <h3 class="text-lg font-semibold text-gray-100 mb-3 flex items-center gap-2 border-b border-gray-800/60 pb-2">
+                    <span class="text-indigo-400 text-sm">▸</span> Basic Usage
+                </h3>
                 <div class="space-y-4">
                     <div>
                         <h4 class="text-white font-medium text-sm mb-1">Per-request (most common):</h4>
@@ -773,7 +842,6 @@ config.get("MISSING_KEY", "default")  # "default"</code></pre>
 )</code></pre>
                         </div>
                     </div>
-
                     <div>
                         <h4 class="text-white font-medium text-sm mb-1">Heavy Cloudflare sites — increase settle time:</h4>
                         <div class="code-block">
@@ -781,7 +849,6 @@ config.get("MISSING_KEY", "default")  # "default"</code></pre>
                                     class="language-python">meta={"stealth": {"driver": "browser", "headless": False, "settle": 12}}</code></pre>
                         </div>
                     </div>
-
                     <div>
                         <h4 class="text-white font-medium text-sm mb-1">Global default (all stealth requests use browser engine):</h4>
                         <div class="code-block"><pre><code class="language-python">from scrapy_stealth.config import config
@@ -791,63 +858,145 @@ config.BROWSER_HEADLESS = False   # more stealthy
 config.BROWSER_SETTLE_S = 6.0    # longer wait for JS</code></pre>
                         </div>
                     </div>
+                </div>
+            </div>
 
+            <!-- Browser Engine: Custom Binary -->
+            <div id="browser-custom-binary" class="scroll-mt-24 mb-8">
+                <h3 class="text-lg font-semibold text-gray-100 mb-3 flex items-center gap-2 border-b border-gray-800/60 pb-2">
+                    <span class="text-indigo-400 text-sm">▸</span> Custom Browser Binary
+                </h3>
+                <p class="text-sm text-gray-400 mb-3">Use Brave, Chromium, or a non-default Chrome install by setting the executable
+                    path.</p>
+                <div class="space-y-4">
                     <div>
-                        <h4 class="text-white font-medium text-sm mb-1">Custom browser binary (Brave, Chromium, or a non-default Chrome
-                            install):</h4>
+                        <h4 class="text-white font-medium text-sm mb-1">Via <code class="text-xs font-mono">config</code>:</h4>
                         <div class="code-block"><pre><code class="language-python">from scrapy_stealth.config import config
 
 config.BROWSER_EXECUTABLE_PATH = "/usr/bin/brave-browser"  # Linux
 # config.BROWSER_EXECUTABLE_PATH = r"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe"  # Windows</code></pre>
                         </div>
-                        <p class="text-sm text-gray-400 mt-1">Or via <code class="text-xs font-mono">settings.py</code> / <code
-                                class="text-xs font-mono">custom_settings</code>:</p>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-medium text-sm mb-1">Via <code class="text-xs font-mono">settings.py</code> / <code
+                                class="text-xs font-mono">custom_settings</code>:</h4>
                         <div class="code-block">
                             <pre><code class="language-python">BROWSER_EXECUTABLE_PATH = "/usr/bin/brave-browser"</code></pre>
                         </div>
-                        <p class="text-xs text-gray-500 mt-1">💡 When <code class="text-xs font-mono">BROWSER_EXECUTABLE_PATH</code> is
-                            <code class="text-xs font-mono">None</code> (the default), <code
-                                    class="text-xs font-mono">scrapy-stealth</code> auto-detects Google Chrome or Chromium from
-                            standard system paths. Set it explicitly when using Brave or a non-standard Chrome installation — a clear
-                            error is raised if the path does not exist.</p>
                     </div>
+                    <p class="text-xs text-gray-500">💡 When <code class="text-xs font-mono">BROWSER_EXECUTABLE_PATH</code> is <code
+                            class="text-xs font-mono">None</code> (default), <code class="text-xs font-mono">scrapy-stealth</code>
+                        auto-detects Google Chrome or Chromium from standard system paths. Set it explicitly when using Brave or a
+                        non-standard installation — a clear error is raised if the path does not exist.</p>
+                </div>
+            </div>
 
-                    <div>
-                        <h4 class="text-white font-medium text-sm mb-1">Intelligent restart:</h4>
-                        <p class="text-sm text-gray-400 mb-2">The browser engine restarts Chrome intelligently rather than on a fixed
-                            schedule — it only restarts (getting a fresh fingerprint, cookies, and CDP session) after <code
-                                    class="text-xs font-mono">BROWSER_RESTART_AFTER_BANS</code> consecutive banned/challenged
-                            responses, as classified by the Anti-Bot Detection module. A single clean response resets the streak, so a
-                            browser that's sailing through cleanly is left running indefinitely — it's never restarted just because it
-                            has served a lot of requests.</p>
-                        <div class="code-block"><pre><code class="language-python">from scrapy_stealth.config import config
+            <!-- Browser Engine: Intelligent Restart -->
+            <div id="browser-restart" class="scroll-mt-24 mb-8">
+                <h3 class="text-lg font-semibold text-gray-100 mb-3 flex items-center gap-2 border-b border-gray-800/60 pb-2">
+                    <span class="text-indigo-400 text-sm">▸</span> Intelligent Restart
+                </h3>
+                <p class="text-sm text-gray-400 mb-3">The browser engine restarts Chrome intelligently rather than on a fixed
+                    schedule — it only restarts (getting a fresh fingerprint, cookies, and CDP session) after <code
+                            class="text-xs font-mono">BROWSER_RESTART_AFTER_BANS</code> consecutive banned/challenged
+                    responses, as classified by the Anti-Bot Detection module. A single clean response resets the streak, so a
+                    browser that's sailing through cleanly is left running indefinitely.</p>
+                <div class="code-block"><pre><code class="language-python">from scrapy_stealth.config import config
 
 config.BROWSER_RESTART_AFTER_BANS = 5  # restart after 5 consecutive bans (default)</code></pre>
-                        </div>
-                    </div>
+                </div>
+            </div>
 
+            <!-- Browser Engine: Docker -->
+            <div id="browser-docker" class="scroll-mt-24 mb-8">
+                <h3 class="text-lg font-semibold text-gray-100 mb-3 flex items-center gap-2 border-b border-gray-800/60 pb-2">
+                    <span class="text-indigo-400 text-sm">▸</span> Docker / Running as Root
+                </h3>
+                <p class="text-sm text-gray-400 mb-3">Chrome requires <code class="text-xs font-mono">--no-sandbox</code> when
+                    the process runs as root. <code class="text-xs font-mono">scrapy-stealth</code> detects this automatically,
+                    but you can also set it explicitly.</p>
+                <div class="space-y-4">
                     <div>
-                        <h4 class="text-white font-medium text-sm mb-1">Docker (running as root):</h4>
-                        <p class="text-sm text-gray-400 mb-2">Chrome requires <code class="text-xs font-mono">--no-sandbox</code> when
-                            the process runs as root. <code class="text-xs font-mono">scrapy-stealth</code> detects this automatically,
-                            but you can also set it explicitly in <code class="text-xs font-mono">settings.py</code>:</p>
+                        <h4 class="text-white font-medium text-sm mb-1">Via <code class="text-xs font-mono">settings.py</code>:</h4>
                         <div class="code-block"><pre><code class="language-python">BROWSER_NO_SANDBOX = True           # force no-sandbox (Docker, any root environment)
 BROWSER_EXECUTABLE_PATH = "/usr/bin/chromium"  # use Chromium instead of Chrome in Docker</code></pre>
                         </div>
-                        <p class="text-sm text-gray-400 mt-2">Or via <code class="text-xs font-mono">config</code>:</p>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-medium text-sm mb-1">Via <code class="text-xs font-mono">config</code>:</h4>
                         <div class="code-block"><pre><code class="language-python">config.BROWSER_NO_SANDBOX = True
 config.BROWSER_EXECUTABLE_PATH = "/usr/bin/chromium"</code></pre>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="mt-4 p-3 border border-indigo-800/30 bg-indigo-950/10 rounded-lg text-xs text-indigo-300">
-                    <strong>⚠️ Performance note:</strong> the browser engine is slower than <code
-                        class="text-xs font-mono">basic</code>/<code class="text-xs font-mono">turbo</code> (~5-15s per page vs &lt;2s).
-                    Use it selectively — route only JS-protected URLs to <code class="text-xs font-mono">"browser"</code> and keep
-                    everything else on <code class="text-xs font-mono">"turbo"</code>.
+            <!-- Browser Engine: Static Asset Blocking -->
+            <div id="browser-static-assets" class="scroll-mt-24 mb-8">
+                <h3 class="text-lg font-semibold text-gray-100 mb-3 flex items-center gap-2 border-b border-gray-800/60 pb-2">
+                    <span class="text-indigo-400 text-sm">▸</span> Static Asset Blocking
+                </h3>
+                <p class="text-sm text-gray-400 mb-3">Block images, fonts, CSS, and media in the browser to speed up page loads and cut
+                    bandwidth, via the CDP Fetch domain. Off by default. Blocking is always skipped when <code
+                            class="text-xs font-mono">snapshot=True</code>, since a snapshot needs the fully rendered page.</p>
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="text-white font-medium text-sm mb-1">Global (via <code class="text-xs font-mono">settings.py</code>):
+                        </h4>
+                        <div class="code-block">
+                            <pre><code class="language-python">BROWSER_STATIC_ASSETS_BLOCK = True</code></pre>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-medium text-sm mb-1">Per-request override:</h4>
+                        <div class="code-block">
+                            <pre><code
+                                    class="language-python">meta = {"stealth": {"driver": "browser", "static_assets_block": True}}</code></pre>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-medium text-sm mb-1">Snapshot always wins (assets never blocked):</h4>
+                        <div class="code-block"><pre><code class="language-python"># even with BROWSER_STATIC_ASSETS_BLOCK = True globally, this request loads everything
+meta = {"stealth": {"driver": "browser", "snapshot": True}}</code></pre>
+                        </div>
+                    </div>
                 </div>
-            </section>
+            </div>
+
+            <!-- Browser Engine: Proxy Bypass List -->
+            <div id="browser-proxy-bypass" class="scroll-mt-24 mb-12">
+                <h3 class="text-lg font-semibold text-gray-100 mb-3 flex items-center gap-2 border-b border-gray-800/60 pb-2">
+                    <span class="text-indigo-400 text-sm">▸</span> Proxy Bypass List
+                </h3>
+                <p class="text-sm text-gray-400 mb-3">When a proxy is configured, send specific domains straight to the origin instead
+                    of through the proxy. Passed to Chrome's <code class="text-xs font-mono">--proxy-bypass-list</code> launch flag —
+                    supports bare hostnames, wildcards (<code class="text-xs font-mono">*.example.com</code>), IP/CIDR ranges, ports,
+                    and <code class="text-xs font-mono">&lt;local&gt;</code>.</p>
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="text-white font-medium text-sm mb-1">Via <code class="text-xs font-mono">settings.py</code>:</h4>
+                        <div class="code-block"><pre><code class="language-python">STEALTH_DRIVER = "browser"
+STEALTH_PROXIES = ["http://user:pass@proxy:8080"]
+BROWSER_PROXY_BYPASS_LIST = [
+    "example.com",       # exact host
+    "*.internal.net",    # wildcard subdomains
+    "127.0.0.1",         # IP
+    "&lt;local&gt;",           # any plain hostname without dots
+]</code></pre>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-medium text-sm mb-1">Via <code class="text-xs font-mono">config</code>:</h4>
+                        <div class="code-block"><pre><code class="language-python">from scrapy_stealth.config import config
+
+config.BROWSER_PROXY_BYPASS_LIST = ["example.com", "*.internal.net"]</code></pre>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-500">💡 The bypass list is a Chrome launch flag — read once at browser start and applies
+                        for the whole browser lifetime. Configured globally (config/settings), not per-request. Has no effect unless a
+                        proxy is in use.</p>
+                </div>
+            </div>
 
             <section id="screenshots" class="scroll-mt-24 mb-12">
                 <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-2 border-b border-gray-800 pb-2">📸 Screenshots</h2>
